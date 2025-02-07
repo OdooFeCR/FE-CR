@@ -14,8 +14,6 @@ Este proyecto está licenciado bajo la **Licencia GNU Affero General Public Lice
 
 ## 🔹 Créditos y Reconocimientos  
 Este proyecto fue basado en la liberación de **OdooCR** e incluye mejoras realizadas por:  
-
-- 🛠 **OdooCR (Comunidad de Odoo en Costa Rica)**  
 - 🛠 **Fabián Artavia**  
 - 🛠 **Rolando Quirós**  
 - 🛠 **José Artavia**  
