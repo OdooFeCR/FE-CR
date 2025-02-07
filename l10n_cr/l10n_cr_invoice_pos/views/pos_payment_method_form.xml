@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_payment_method_form" model="ir.ui.view">
+        <field name="name">pos.payment.method.form</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='Payment methods']" position="inside">
+                <!--Aqui va el codigo de la vista de la relación-->
+                <setting>
+                    <label for="account_payment_method_id"/>
+                    <field name="account_payment_method_id" string="Accounting Payment Method"/>
+                </setting>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
