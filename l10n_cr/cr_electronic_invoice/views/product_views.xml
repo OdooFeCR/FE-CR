@@ -9,7 +9,7 @@
                 <field name="detailed_type" position="after">
                     <field name="code_type_id" required="0"/>
                     <field name="commercial_measurement" required="0"/>
-<!--                    <field name="cabys_code" />-->
+                    <field name="cabys_code" />
                     <field name="economic_activity_id" domain="[('active', '=', True)]" options='{"no_open": True, "no_create": True}'/>
                     <field name="non_tax_deductible" default="0"/>
                 </field>
@@ -21,9 +21,7 @@
             <field name="inherit_id" ref="product.product_category_form_view" />
             <field name="arch" type="xml">
                 <field name="name" position="after">
-                    <group>
                     <field name="economic_activity_id" domain="[('active', '=', True)]" options='{"no_open": True, "no_create": True}'/>
-                    </group>
                 </field>
             </field>
         </record>

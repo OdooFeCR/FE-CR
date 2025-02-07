@@ -1,11 +1,12 @@
 
+
 {
     'name': 'Facturación electrónica Costa Rica',
-    'version': '17.0.0.0.0',
-    'author': 'Singulary',
+    'version': '14.0.1.0.0',
+    'author': 'Odoo CR',
     'license': 'AGPL-3',
-    'website': 'https://singulary.online',
-    'category': 'Accounting/Accounting',
+    'website': 'https://github.com/odoocr',
+    'category': 'Account',
     'description':
         '''
         Facturación electronica Costa Rica.
@@ -18,13 +19,11 @@
         'sales_team',
         'sale_stock',
         'account',
-        'l10n_cr',
         'l10n_cr_country_codes',
         'l10n_cr_hacienda_info_query',
         'res_currency_cr_adapter',
         ],
     'data': [
-        'data/account_tax_group_data.xml',
         'data/account_tax_data.xml',
         'data/aut_ex_data.xml',
         'data/code_type_product_data.xml',
@@ -59,10 +58,10 @@
         'views/economic_activity_views.xml',
         'views/menu_views.xml',
         'views/account_move_reversal_views.xml',
-        'views/report_invoice.xml',
+        'views/report_invoice_document.xml',
+        'views/qr_code_invoice_view.xml',
         'views/account_portal_templates.xml',
         'security/ir.model.access.csv',
-        # 'data/account_tax_template_data.xml',
     ],
     'external_dependencies': {
         "python": [

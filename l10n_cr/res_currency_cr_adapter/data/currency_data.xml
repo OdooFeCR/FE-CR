@@ -15,7 +15,6 @@
         <field name="numbercall">-1</field>
         <field name="nextcall" eval="(datetime.today() + timedelta(days=1)).strftime('%Y-%m-%d 13:00:00')"></field>
         <field name="doall" eval="False"/>
-        <field name="active" eval="True"/>
     </record>
     <record id="create_missing_exchange_rate_cron" model="ir.cron">
         <field name="name">Create Missing Exchange Rate</field>
@@ -26,7 +25,7 @@
         <field name="interval_type">days</field>
         <field name="numbercall">-1</field>
         <field name="doall" eval="False"/>
-        <field name="active" eval="True"/>
+        <field name="active" eval="False"/>
     </record>
 
 </odoo>

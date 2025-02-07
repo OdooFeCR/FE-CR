@@ -49,6 +49,37 @@
 		<field name="view_mode">tree,form</field>
 	</record>
 
+	<record id="cabys_catalog_import_wizard_form_view" model="ir.ui.view">
+		<field name="name">cabys.catalog.import.wizard.form</field>
+		<field name="model">cabys.catalog.import.wizard</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="notes"/>
+				
+				<button colspan="4" 
+						string="Descargar catálogo del BCCR" 
+						name="download_catalog" 
+						class="btn btn-info" 
+						type="object"  
+						attrs="{'invisible':[('cabys_excel_file','!=',False)]}"/>
+
+				<field colspan="4" 
+						string="Cargar catálogo en archivo de Excel" 
+						name="cabys_excel_file"
+						attrs="{'invisible':[('cabys_excel_file','!=',False)]}"/>			
+
+				<field 	name="file_url"
+						attrs="{'invisible':[('cabys_excel_file','!=',False)]}"/>
+
+				<footer>
+					<field name="button_enable" invisible="1"/>
+					<button string="Importar Catálogo" name="update_catalog" type="object" class="oe_highlight" attrs="{'invisible':[('button_enable','=',False)]}"/>
+					<button string="Cerrar esta ventana" class="btn btn-default" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
 	<menuitem id="menu_cabys" name="Cabys" parent="account.account_account_menu" sequence="30"/>
 	<menuitem id="menu_categoria1" name="Categoría 1" parent="account.account_account_menu" sequence="31" action="action_categoria1"/>
 	<menuitem id="menu_categoria2" name="Categoría 2" parent="account.account_account_menu" sequence="32" action="action_categoria2"/>
@@ -59,5 +90,6 @@
 	<menuitem id="menu_categoria7" name="Categoría 7" parent="account.account_account_menu" sequence="37" action="action_categoria7"/>
 	<menuitem id="menu_categoria8" name="Categoría 8" parent="account.account_account_menu" sequence="38" action="action_categoria8"/>
 	<menuitem id="menu_producto"   name="Catálogo Cabys" parent="account.account_account_menu" sequence="39" action="action_productos"/>
+
 </data>
 </odoo>

@@ -3,11 +3,7 @@ from odoo.tools.misc import get_lang
 
 
 class AccountInvoiceSend(models.TransientModel):
-    _inherit = 'account.move.send'
-
-    # -------------------------------------------------------------------------
-    # PUBLIC ACTIONS
-    # -------------------------------------------------------------------------
+    _inherit = 'account.invoice.send'
 
     def send_and_print_action(self):
         self.ensure_one()
@@ -29,6 +25,4 @@ class AccountInvoiceSend(models.TransientModel):
             self._send_email()
         if self.is_print:
             return self._print_document()
-        return {
-            'type': 'ir.actions.act_window_close'
-        }
+        return {'type': 'ir.actions.act_window_close'}

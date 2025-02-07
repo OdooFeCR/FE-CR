@@ -1,4 +1,6 @@
 
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
 from odoo import api, fields, models
 
 
@@ -9,7 +11,7 @@ class ResConfigSettings(models.TransientModel):
         ('disabled', 'Disabled'),
         ('bccr', 'BCCR (recommended)'),
         ('hacienda', 'Hacienda')
-        ], default='disabled')
+        ], required=True, default='disabled')
 
     bccr_username = fields.Char(string="BCCR username")
     bccr_email = fields.Char(string="e-mail registered in the BCCR")

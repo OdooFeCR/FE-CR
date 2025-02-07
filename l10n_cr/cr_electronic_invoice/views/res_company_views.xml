@@ -7,9 +7,35 @@
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="invoice_qr_type"/>
+                    <field name="invoice_field_ids" attrs="{'required':[('invoice_qr_type','=','by_info')],'invisible':[('invoice_qr_type','!=','by_info')]}">
+                        <tree editable="bottom">
+                            <field name="sequence" widget="handle" />
+                            <field name="field_id" />
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
 
-            <field name="vat" position="after">
-                <field name="invoice_is_electronic"/>
+            <xpath expr="//sheet[1]" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath>
+
+            <field name="website" position="before">
+                <field name="commercial_name"/>
+                <field name="legal_name"/>
+                <field name="activity_id" domain="[('active', '=', True)]" options='{"no_open": True, "no_create": True}' />
+                <button name="action_get_economic_activities" type="object" string="Consultar Actividad Economica en Hacienda" colspan="2" />
+            </field>
+
+            <field name="partner_id" position="after">
+                <field name="identification_id"/>
+                <field name="vat"/>
             </field>
 
             <!-- <field name="incoterm_id" position="attributes">
@@ -17,90 +43,50 @@
                     </attribute>
                 </field> -->
             <!-- Página para consultar información de EXONET-->
-
-
             <xpath expr="//page[1]" position="after">
-                <page string="API Consultas">
-                    <block title="EndPoints Consultas y consultas" name="fecr_endpoints_container">
-                        <setting>
-                            <field name="url_base_exo"/>
-                        </setting>
-
-                        <setting>
-                            <field name="url_base"/>
-                        </setting>
-                    </block>
-                    <block>
-                        <setting>
-                            <field invisible="(ultima_respuesta_exo in (False,''))"
-                                   readonly="(ultima_respuesta_exo != False)"
-                                   name="ultima_respuesta_exo"/>
-                        </setting>
-                        <setting>
-                            <field invisible="(ultima_respuesta in (False,''))"
-                                   readonly="(ultima_respuesta != False)"
-                                   name="ultima_respuesta"/>
-                        </setting>
-                    </block>
+                <page string="EXONET">
+                    <separator string="URL Base"/>
+                    <group col="4" colspan="2">
+                        <group col="2">
+                            <field name="url_base_exo" nolabel="1"/>
+                        </group>
+                        <group col="2"/>
+                    </group>
+                    <group col="4">
+                        <field attrs="{'invisible' : [('ultima_respuesta_exo', 'in', (False,''))], 'readonly' : [('ultima_respuesta_exo', '!=', False)]}" colspan="4" name="ultima_respuesta_exo"/>
+                    </group>
                 </page>
             </xpath>
 
-
             <xpath expr="//page[1]" position="after">
-                <page name="" string="Facturación Electrónica" invisible="invoice_is_electronic == False">
-                    <form>
-                        <sheet>
-                            <group>
-                                <group string="Configuracion Compañía">
-                                    <field name="commercial_name"/>
-                                    <field name="legal_name"/>
-                                    <field name="company_registry"/>
-                                    <field name="vat"/>
-                                    <field name="identification_id"/>
-                                    <field name="currency_id"/>
-                                </group>
+                <page string="Electronic Invoice">
+                    <group cols="2">
+                        <group cols="2">
+                            <field name="signature"/>
+                            <field name="frm_ws_identificador"/>
+                            <field name="frm_ws_password" password="True"/>
+                            <field name="frm_pin" password="True"/>
+                            <field name="date_expiration_sign" force_save="True" readonly="1"/>
+                            <field name="range_days"/>
+                            <field name="send_user_ids" widget="many2many_tags"/>
+                            <field name="to_emails"/>
+                        </group>
+                        <group cols="2">
+                            <button name="test_get_token" type="object" string="Test get token" colspan="2" />
+                            <field name="frm_ws_ambiente" widget="radio"/>
+                        </group>
+                        <group cols="2">
+                            <field name="CCE_sequence_id"/>
+                            <field name="CPCE_sequence_id"/>
+                            <field name="RCE_sequence_id"/>
+                            <field name="FEC_sequence_id"/>
+                        </group>
 
-                                <group string="Ubicación">
-                                    <field name="country_id" string="País" readonly="1"
-                                           options="{'no_create': True, 'no_create_edit': True}"
-                                           placeholder="Country Code"/>
-                                    <field name="state_id" string="Provincia" placeholder="Seleccionar Provincia"
-                                           domain="[('country_id', '=',country_id)]"
-                                           options="{'no_create': True, 'no_create_edit': True}"/>
-                                    <field name="county_id" string="Canton" placeholder="Seleccionar Canton"
-                                           readonly="0" domain="[('state_id', '=',state_id)]"
-                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
-                                    <field name="district_id" string="Distrito" placeholder="Seleccionar Distrito"
-                                           readonly="0" domain="[('county_id', '=',county_id)]"
-                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
-                                    <field name="neighborhood_id" string="Barrio" placeholder="Seleccionar Barrio"
-                                           readonly="0" domain="[('district_id', '=',district_id)]"
-                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
-                                    <field name="street" string="Otras Señas" placeholder="Otras Señas" readonly="0"
-                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
-                                    <field name="street2" string="Otras Señas2" placeholder="Otras Señas2" readonly="0"
-                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
-                                </group>
-
-                                <group string="Configuracion Credenciales">
-                                    <field name="frm_ws_identificador" string="Nombre usuario Hacienda"/>
-                                    <field name="frm_ws_password" string="Contraseña Hacienda" password="True"/>
-                                    <field name="signature"/>
-                                    <field name="frm_pin" password="True"/>
-                                    <button name="test_get_token" type="object" string="Test get token" colspan="2"/>
-                                    <field name="frm_ws_ambiente" widget="radio"/>
-                                    <field name="date_expiration_sign" force_save="True" readonly="1"/>
-                                </group>
-
-                                <group string="Actividades Económicas">
-                                    <field name="activity_id" domain="[('active', '=', True)]"
-                                           options='{"no_open": True, "no_create": True}'/>
-                                    <button name="action_get_economic_activities" type="object"
-                                            string="Consultar Actividad Economica en Hacienda" colspan="2"/>
-                                </group>
-                            </group>
-                        </sheet>
-                    </form>
+                        <group cols="2">
+                            <field name="sucursal_MR"/>
+                            <field name="terminal_MR"/>
+                        </group>
+                    </group>
                 </page>
             </xpath>
         </field>

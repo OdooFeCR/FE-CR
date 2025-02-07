@@ -14,78 +14,24 @@ _logger = logging.getLogger(__name__)
 class PartnerElectronic(models.Model):
     _inherit = "res.partner"
 
-    # ==============================================================================================
-    #                                          PARTNER
-    # ==============================================================================================
-
-    # === Partner fields === #
-
     commercial_name = fields.Char()
-    identification_id = fields.Many2one(
-        comodel_name="identification.type"
-    )
-    payment_methods_id = fields.Many2one(
-        comodel_name="payment.methods",
-        string="Payment Method"
-    )
-    export = fields.Boolean(
-        string="It's export",
-        default=False
-    )
-
-    # === Economic Activity fields === #
-
-    activity_id = fields.Many2one(
-        comodel_name="economic.activity",
-        string="Default Economic Activity",
-        context={
-            'active_test': False
-        }
-    )
-    economic_activities_ids = fields.Many2many(
-        comodel_name='economic.activity',
-        string='Economic Activities',
-        context={
-            'active_test': False
-        }
-    )
-
-    # === Exonerations fields === #
-
-    has_exoneration = fields.Boolean(
-        string="Has Exoneration?",
-        required=False
-    )
-    type_exoneration = fields.Many2one(
-        comodel_name="aut.ex",
-        string="Authorization Type"
-    )
+    identification_id = fields.Many2one("identification.type")
+    payment_methods_id = fields.Many2one("payment.methods", string="Payment Method")
+    has_exoneration = fields.Boolean(string="Has Exoneration?", required=False)
+    type_exoneration = fields.Many2one("aut.ex", string="Authorization Type")
     exoneration_number = fields.Char()
-    percentage_exoneration = fields.Float(
-        string="Percentage of VAT Exoneration",
-        required=False
-    )
-    institution_name = fields.Char(
-        string="Exoneration Issuer"
-    )
-    date_issue = fields.Date(
-        string="Issue Date"
-    )
-    date_expiration = fields.Date(
-        string="Expiration Date"
-    )
-    date_notification = fields.Date(
-        string="Last notification date"
-    )
-    allowed_cabys_ids = fields.One2many(
-        comodel_name='res.partner.cabys.line',
-        inverse_name='parent_id',
-        string='Allowed CABYS Codes'
-    )
-
-    # -------------------------------------------------------------------------
-    # ONCHANGE METHODS
-    # -------------------------------------------------------------------------
+    percentage_exoneration = fields.Float(string="Percentage of VAT Exoneration", required=False)
+    institution_name = fields.Char(string="Exoneration Issuer")
+    date_issue = fields.Date(string="Issue Date")
+    date_expiration = fields.Date(string="Expiration Date")
+    date_notification = fields.Date(string="Last notification date")
+    activity_id = fields.Many2one("economic.activity",
+                                  string="Default Economic Activity",
+                                  context={'active_test': False})
+    economic_activities_ids = fields.Many2many('economic.activity',
+                                               string='Economic Activities',
+                                               context={'active_test': False})
+    export = fields.Boolean(string="It's export", default=False)
 
     @api.onchange('phone')
     def _onchange_phone(self):
@@ -148,27 +94,6 @@ class PartnerElectronic(models.Model):
                         raise UserError(_('La identificación tipo NITE debe contener 10 dígitos, ' +
                                           'sin ceros al inicio y sin guiones.'))
 
-    @api.onchange('exoneration_number')
-    def _onchange_exoneration_number(self):
-        if self.exoneration_number:
-            self.definir_informacion_exo(self.exoneration_number)
-    
-    @api.onchange('zip')
-    def _onchange_zip_custom(self):
-        for record in self:
-            zip_code  = record.zip
-            if zip_code and not (record.state_id or record.county_id or record.district_id or record.neighborhood_id):
-                state = zip_code[:1]
-                county = zip_code[1:3]
-                district = zip_code[3:5]
-                
-                state_id = self.env['res.country.state'].search([('code', '=', state)], limit=1)
-
-                record.state_id = state_id.id
-    # -------------------------------------------------------------------------
-    # TOOLING
-    # -------------------------------------------------------------------------
-
     def action_get_economic_activities(self):
         if self.vat:
             json_response = api_facturae.get_economic_activities(self)
@@ -202,6 +127,11 @@ class PartnerElectronic(models.Model):
             }
             return {'value': {'vat': ''}, 'warning': alert}
 
+    @api.onchange('exoneration_number')
+    def _onchange_exoneration_number(self):
+        if self.exoneration_number:
+            self.definir_informacion_exo(self.exoneration_number)
+
     def definir_informacion_exo(self, cedula):
         url_base = self.sudo().env.company.url_base_exo
         if url_base:
@@ -221,6 +151,14 @@ class PartnerElectronic(models.Model):
             ultimo_mensaje = 'Fecha/Hora: ' + str(datetime.now()) + ', Codigo: ' + str(
                 peticion.status_code) + ', Mensaje: ' + str(peticion._content.decode())
 
+            if peticion.status_code == 404:
+                self.date_issue = False
+                self.date_expiration = False
+                self.percentage_exoneration = 0
+                self.institution_name = False
+                self.type_exoneration = False
+                # raise UserError(_('El documento de exoneración no existe.'))
+
             if peticion.status_code in (200, 202) and len(peticion._content) > 0:
                 contenido = json.loads(str(peticion._content, 'utf-8'))
 
@@ -235,8 +173,6 @@ class PartnerElectronic(models.Model):
                     self.date_expiration = fecha_vencimiento
                     self.percentage_exoneration = float(contenido.get('porcentajeExoneracion'))
                     self.institution_name = contenido.get('nombreInstitucion')
-                    if contenido.get('cabys'):
-                        self.allowed_cabys_ids = [(0, 0, {'name': code}) for code in contenido.get('cabys')]
 
                     tipo_documento = contenido.get('tipoDocumento')
 

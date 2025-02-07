@@ -35,12 +35,12 @@
 
             <field name="category_id" position="after">
 
-                <field name="has_exoneration" invisible="(supplier_rank > 0)" />
-                <field name="export" invisible="(supplier_rank > 0)" />
+                <field name="has_exoneration" attrs="{'invisible': [('supplier_rank', '>', 0)]}" />
+                <field name="export" attrs="{'invisible': [('supplier_rank', '>', 0)]}" />
             </field>
 
             <xpath expr="//page[3]" position="after">
-                <page name="exoneration_config" string="Exoneration" invisible="(has_exoneration != True)">
+                <page name="exoneration_config" string="Exoneration" attrs="{'invisible': [('has_exoneration', '!=', True)]}">
                     <group col="2">
                         <field name="exoneration_number"/>
                         <field name="type_exoneration"/>
@@ -49,12 +49,6 @@
                         <field name="date_issue"/>
                         <field name="date_expiration"/>
                     </group>
-                    <field name="allowed_cabys_ids">
-                        <tree create="false" delete="false" editable="bottom">
-                            <field name="parent_id" invisible="1" />
-                            <field name="name" />
-                        </tree>
-                    </field>
                 </page>
             </xpath>
         </field>
