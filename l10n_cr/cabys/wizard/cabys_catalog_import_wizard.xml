@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cabys_catalog_import_wizard_form_view" model="ir.ui.view">
+		<field name="name">cabys.catalog.import.wizard.form</field>
+		<field name="model">cabys.catalog.import.wizard</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="notes"/>
+						<field string="Cargar catálogo en archivo de Excel" name="cabys_excel_file" invisible="cabys_excel_file != False"/>			
+
+						<field name="file_url" invisible="cabys_excel_file != False"/>
+					</group>
+				</sheet>
+				<footer>
+					<button string="Descargar catálogo del BCCR" name="download_catalog" class="btn btn-info" type="object" invisible="cabys_excel_file != False"/>
+					<field name="button_enable" invisible="1"/>
+					<button string="Importar Catálogo" name="update_catalog" type="object" class="oe_highlight" invisible="button_enable == False"/>
+					<button string="Cerrar esta ventana" class="btn btn-default" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+    <record id="import_cabys_action" model="ir.actions.act_window">
+        <field name="name">Importar Catálogo Cabys</field>
+        <field name="res_model">cabys.catalog.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_import_cabys" name="Importar Catálogo Cabys" parent="account.account_account_menu" sequence="39" action="import_cabys_action"/>
+</odoo>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+	<record id="cabys_productos_tree_view" model="ir.ui.view">
+		<field name="name">cabys.producto.tree</field>
+		<field name="model">cabys.producto</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Catálogo de Productos Cabys">
+				<field name="codigo"/>
+				<field name="name"/>
+				<field name="impuesto"/>
+				<field name="cabys_categoria8_id"/>
+				<field name="cabys_categoria7_id"/>
+				<field name="cabys_categoria6_id"/>
+				<field name="cabys_categoria5_id"/>
+				<field name="cabys_categoria4_id"/>
+				<field name="cabys_categoria3_id"/>
+				<field name="cabys_categoria2_id"/>
+				<field name="cabys_categoria1_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="cabys_productos_form_view" model="ir.ui.view">
+        <field name="name">cabys.producto.form</field>
+        <field name="model">cabys.producto</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <h1><field name="name"/></h1>
+                <group col="4">
+                    <field name="codigo"/>
+                    <field name="impuesto"/>
+                </group>
+                <group col="4">
+                    <field name="cabys_categoria8_id"/>
+					<field name="cabys_categoria7_id"/>
+					<field name="cabys_categoria6_id"/>
+					<field name="cabys_categoria5_id"/>
+					<field name="cabys_categoria4_id"/>
+					<field name="cabys_categoria3_id"/>
+					<field name="cabys_categoria2_id"/>
+					<field name="cabys_categoria1_id"/>
+                </group>
+				<notebook>
+					<page name="products_page" string="Productos">
+						<field name='product_ids'>
+								<tree>
+									<field name='name'/>
+									<field name='default_code'/>
+									<field name='categ_id'/>
+								</tree>
+						</field>
+					</page>
+					<page name="categories_page" string="Categorias">
+						<field name='category_ids' widget="many2many">
+							<tree>
+								<field name='name'/>
+								<field name='parent_id'/>
+							</tree>
+						</field>
+					</page>
+					<page name="first_page" string="Nota explicativa 1. Incluye">
+						<field name='first_description'/>
+					</page>
+					<page name="second_page" string="Nota explicativa 2. Excluye">
+						<field name='name'/>
+					</page>
+				</notebook>
+            </form>
+        </field>
+    </record>
+
+	<record id="cabys_productos_search_view" model="ir.ui.view">
+		<field name="name">cabys.producto.search</field>
+		<field name="model">cabys.producto</field>
+		<field name="arch" type="xml">
+			<search string="cursos">
+				<field name='name' string='Buscar en el catálogo Cabys' filter_domain="['|','|','|','|',('codigo','ilike',self),('name','ilike',self),('cabys_categoria8_id.name','ilike',self),('cabys_categoria7_id.name','ilike',self),('cabys_categoria6_id.name','ilike',self)]"/>
+				<field name="cabys_categoria8_id"/>
+				<field name='cabys_categoria7_id'/>
+				<field name='cabys_categoria6_id'/>
+				<field name='cabys_categoria5_id'/>
+				<field name='cabys_categoria4_id'/>
+				<field name='cabys_categoria3_id'/>
+				<field name='cabys_categoria2_id'/>
+				<field name='cabys_categoria1_id'/>
+				<filter name="en_uso" string="Productos en Uso" domain="[('product_ids','!=',False),('category_ids','=',False)]" help="Mostrar productos en uso del sistema"/>
+			</search>
+		</field>
+	</record>
+
+	<record id="action_productos" model="ir.actions.act_window">
+		<field name="name">Productos</field>
+		<field name="res_model">cabys.producto</field>
+		<field name="view_mode">tree,form</field>
+		<field name="context">{"search_default_en_uso":1}</field>
+	</record>
+
+</data></odoo>

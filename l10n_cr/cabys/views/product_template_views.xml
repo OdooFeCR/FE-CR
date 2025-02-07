@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <record id="view_product_template_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+   	    <xpath expr="//field[@name='default_code']" position="after">
+                <field name="cabys_code"/>
+                <field name="cabys_tax"/>
+            </xpath>
+
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="cabys" string="Cabys" groups="account.group_account_manager">
+					<group>
+						<field name="cabys_product_id" options="{'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+					</group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</data></odoo>

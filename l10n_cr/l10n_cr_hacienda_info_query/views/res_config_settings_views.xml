@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base.setup</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='companies']" position="after">
+                <block title="Electronic Invoicing Costa Rica" name="fecr_setting_container">
+                    <setting
+                            id="hacienda_settings_config">
+                        <field name="get_yo_contribuyo_information"/>
+
+                        <div class="o_form_label">
+                            <label for="url_base_yo_contribuyo"
+                                   invisible="get_yo_contribuyo_information == False"/>
+                        </div>
+
+                        <field name="url_base_yo_contribuyo"
+                               value="https://api.hacienda.go.cr/fe/mifacturacorreo?"
+                               invisible="get_yo_contribuyo_information == False"
+                               help="Endpoint de Yo Contribuyo"
+                        />
+                        <div class="o_form_label">
+                            <label for="usuario_yo_contribuyo"
+                                   invisible="get_yo_contribuyo_information == False"/>
+                        </div>
+
+                        <field name="usuario_yo_contribuyo"
+                               invisible="get_yo_contribuyo_information == False"
+                               help="Usuario Yo Contribuyo"
+                        />
+
+                        <div class="o_form_label">
+                            <label for="token_yo_contribuyo"
+                                   invisible="get_yo_contribuyo_information == False"/>
+                        </div>
+
+                        <field name="token_yo_contribuyo"
+                               invisible="get_yo_contribuyo_information == False"
+                               help="Token de acceso Yo Contribuyo"
+                        />
+
+                    </setting>
+
+                    <setting
+                            id="get_tributary_information"
+                            help="Consultas al API tributarias">
+                        <field name="get_tributary_information"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

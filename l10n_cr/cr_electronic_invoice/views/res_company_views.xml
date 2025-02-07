@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_company_form_inherit" model="ir.ui.view">
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+
+
+            <field name="vat" position="after">
+                <field name="invoice_is_electronic"/>
+            </field>
+
+            <!-- <field name="incoterm_id" position="attributes">
+                    <attribute name="attrs">{'invisible': [('country_id','=',%(base.cr)d)]}
+                    </attribute>
+                </field> -->
+            <!-- Página para consultar información de EXONET-->
+
+
+            <xpath expr="//page[1]" position="after">
+                <page string="API Consultas">
+                    <block title="EndPoints Consultas y consultas" name="fecr_endpoints_container">
+                        <setting>
+                            <field name="url_base_exo"/>
+                        </setting>
+
+                        <setting>
+                            <field name="url_base"/>
+                        </setting>
+                    </block>
+                    <block>
+                        <setting>
+                            <field invisible="(ultima_respuesta_exo in (False,''))"
+                                   readonly="(ultima_respuesta_exo != False)"
+                                   name="ultima_respuesta_exo"/>
+                        </setting>
+                        <setting>
+                            <field invisible="(ultima_respuesta in (False,''))"
+                                   readonly="(ultima_respuesta != False)"
+                                   name="ultima_respuesta"/>
+                        </setting>
+                    </block>
+                </page>
+            </xpath>
+
+
+            <xpath expr="//page[1]" position="after">
+                <page name="" string="Facturación Electrónica" invisible="invoice_is_electronic == False">
+                    <form>
+                        <sheet>
+                            <group>
+                                <group string="Configuracion Compañía">
+                                    <field name="commercial_name"/>
+                                    <field name="legal_name"/>
+                                    <field name="company_registry"/>
+                                    <field name="vat"/>
+                                    <field name="identification_id"/>
+                                    <field name="currency_id"/>
+                                </group>
+
+                                <group string="Ubicación">
+                                    <field name="country_id" string="País" readonly="1"
+                                           options="{'no_create': True, 'no_create_edit': True}"
+                                           placeholder="Country Code"/>
+                                    <field name="state_id" string="Provincia" placeholder="Seleccionar Provincia"
+                                           domain="[('country_id', '=',country_id)]"
+                                           options="{'no_create': True, 'no_create_edit': True}"/>
+                                    <field name="county_id" string="Canton" placeholder="Seleccionar Canton"
+                                           readonly="0" domain="[('state_id', '=',state_id)]"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="district_id" string="Distrito" placeholder="Seleccionar Distrito"
+                                           readonly="0" domain="[('county_id', '=',county_id)]"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="neighborhood_id" string="Barrio" placeholder="Seleccionar Barrio"
+                                           readonly="0" domain="[('district_id', '=',district_id)]"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="street" string="Otras Señas" placeholder="Otras Señas" readonly="0"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="street2" string="Otras Señas2" placeholder="Otras Señas2" readonly="0"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                </group>
+
+                                <group string="Configuracion Credenciales">
+                                    <field name="frm_ws_identificador" string="Nombre usuario Hacienda"/>
+                                    <field name="frm_ws_password" string="Contraseña Hacienda" password="True"/>
+                                    <field name="signature"/>
+                                    <field name="frm_pin" password="True"/>
+                                    <button name="test_get_token" type="object" string="Test get token" colspan="2"/>
+                                    <field name="frm_ws_ambiente" widget="radio"/>
+                                    <field name="date_expiration_sign" force_save="True" readonly="1"/>
+                                </group>
+
+                                <group string="Actividades Económicas">
+                                    <field name="activity_id" domain="[('active', '=', True)]"
+                                           options='{"no_open": True, "no_create": True}'/>
+                                    <button name="action_get_economic_activities" type="object"
+                                            string="Consultar Actividad Economica en Hacienda" colspan="2"/>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
