@@ -57,6 +57,34 @@
         <field name="code_type_id" ref="cr_electronic_invoice.CodeTypeProduct_99" />
         <field name="taxes_id" eval="[(5,0,0)]" />
     </record>
+
+    <record id="product_garantias" model="product.template">
+        <field name="name">Depósitos de Garantía</field>
+        <field name="type">consu</field>
+        <field name="default_code">08</field>
+        <field name="categ_id" ref="product_category_otros_cargos" />
+        <field name="code_type_id" ref="cr_electronic_invoice.CodeTypeProduct_99" />
+        <field name="taxes_id" eval="[(5,0,0)]" />
+    </record>
+
+    <record id="product_multas" model="product.template">
+        <field name="name">Multas o Penalizaciones</field>
+        <field name="type">consu</field>
+        <field name="default_code">09</field>
+        <field name="categ_id" ref="product_category_otros_cargos" />
+        <field name="code_type_id" ref="cr_electronic_invoice.CodeTypeProduct_99" />
+        <field name="taxes_id" eval="[(5,0,0)]" />
+    </record>
+
+    <record id="product_intereses" model="product.template">
+        <field name="name">Intereses Moratorios</field>
+        <field name="type">consu</field>
+        <field name="default_code">10</field>
+        <field name="categ_id" ref="product_category_otros_cargos" />
+        <field name="code_type_id" ref="cr_electronic_invoice.CodeTypeProduct_99" />
+        <field name="taxes_id" eval="[(5,0,0)]" />
+    </record>
+
     <record id="product_otros_cargos" model="product.template">
         <field name="name">Otros Cargos</field>
         <field name="type">consu</field>

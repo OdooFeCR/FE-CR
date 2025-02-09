@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- sale conditions -->
-    <record id="SaleConditions_1" 
+    <record id="SaleConditions_1"
         model="sale.conditions">
         <field name="code">01</field>
         <field name="name">Contado</field>
@@ -79,10 +79,38 @@
         <field name="active">true</field>
     </record>
 
+    <record id="SaleConditions_12"
+        model="sale.conditions">
+        <field name="code">12</field>
+        <field name="name">Venta Mercancía No Nacionalizada</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="SaleConditions_13"
+        model="sale.conditions">
+        <field name="code">13</field>
+        <field name="name">Venta Bienes Usados No Contribuyente</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="SaleConditions_14"
+        model="sale.conditions">
+        <field name="code">14</field>
+        <field name="name">Arrendamiento Operativo</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="SaleConditions_15"
+        model="sale.conditions">
+        <field name="code">15</field>
+        <field name="name">Arrendamiento Financiero</field>
+        <field name="active">true</field>
+    </record>
+
     <record id="SaleConditions_99" 
         model="sale.conditions">
         <field name="code">99</field>
-        <field name="name">Otros (se debe indicar la condición de la venta)</field>
+        <field name="name">Otros (se debe indicar la condición de la venta en la representación gráfica)</field>
         <field name="active">true</field>
     </record>
 

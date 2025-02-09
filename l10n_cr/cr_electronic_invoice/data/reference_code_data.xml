@@ -8,17 +8,17 @@
         <field name="active">true</field>
     </record>
 
-        <record id="ReferenceCode_2" model="reference.code">
+    <record id="ReferenceCode_2" model="reference.code">
         <field name="code">02</field>
-        <field name="name">Corrige texto de ocumento de referencia</field>
-        <field name="active">true</field>
-    </record>
-
-    <record id="ReferenceCode_3" model="reference.code">
-        <field name="code">03</field>
         <field name="name">Corrige monto</field>
         <field name="active">true</field>
     </record>
+
+    <!--    <record id="ReferenceCode_3" model="reference.code">-->
+    <!--        <field name="code">03</field>-->
+    <!--        <field name="name">Corrige monto</field>-->
+    <!--        <field name="active">true</field>-->
+    <!--    </record>-->
 
     <record id="ReferenceCode_4" model="reference.code">
         <field name="code">04</field>
@@ -28,11 +28,53 @@
 
     <record id="ReferenceCode_5" model="reference.code">
         <field name="code">05</field>
-        <field name="name">Sustituye comprobante provisional por contigencia</field>
+        <field name="name">Sustituye comprobante provisional por contingencia</field>
         <field name="active">true</field>
     </record>
 
-        <record id="ReferenceCode_99" model="reference.code">
+    <record id="ReferenceCode_6" model="reference.code">
+        <field name="code">06</field>
+        <field name="name">Devolución de mercancía</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_7" model="reference.code">
+        <field name="code">07</field>
+        <field name="name">Sustituye comprobante electrónico</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_8" model="reference.code">
+        <field name="code">08</field>
+        <field name="name">Factura Endosada</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_9" model="reference.code">
+        <field name="code">09</field>
+        <field name="name">Nota de crédito financiera</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_10" model="reference.code">
+        <field name="code">10</field>
+        <field name="name">Nota de débito financiera</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_11" model="reference.code">
+        <field name="code">11</field>
+        <field name="name">Proveedor No Domiciliado</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_12" model="reference.code">
+        <field name="code">12</field>
+        <field name="name">Crédito por exoneración posterior a la facturación</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceCode_99" model="reference.code">
         <field name="code">99</field>
         <field name="name">Otros</field>
         <field name="active">true</field>

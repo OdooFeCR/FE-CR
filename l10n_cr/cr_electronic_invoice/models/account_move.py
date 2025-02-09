@@ -1038,11 +1038,6 @@ class AccountInvoiceElectronic(models.Model):
                 token_m_h = api_facturae.get_token_hacienda(inv, inv.company_id.frm_ws_ambiente)
                 api_facturae.consulta_documentos(self, inv, self.company_id.frm_ws_ambiente, token_m_h, False, False)
 
-    # def action_check_errors(self):
-    #     if self.company_id.frm_ws_ambiente != 'disabled':
-    #
-
-
     def action_create_fec(self):
         if self.company_id.frm_ws_ambiente == 'disabled':
             raise UserError(_('Hacienda API is disabled in company'))
@@ -1911,6 +1906,7 @@ class AccountInvoiceElectronic(models.Model):
                 # Limpiamos los adjuntos para evitar problemas en futuras llamadas
                 email_template.attachment_ids = [(5, 0, 0)]
 
+
     def action_invoice_sent(self):
         self.ensure_one()
 
@@ -1987,3 +1983,4 @@ class AccountInvoiceElectronic(models.Model):
             'target': 'new',
             'context': ctx,
         }
+

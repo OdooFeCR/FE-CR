@@ -3,7 +3,7 @@
 
     <record id="AutEx_1" model="aut.ex">
         <field name="code">01</field>
-        <field name="name">Compras autorizadas</field>
+        <field name="name">Compras autorizadas por la Dirección General de Tributación</field>
         <field name="active" eval="True"/>
     </record>
 
@@ -27,19 +27,43 @@
 
     <record id="AutEx_5" model="aut.ex">
         <field name="code">05</field>
-        <field name="name">Transitorio V</field>
+        <field name="name">Exenciones Dirección General de Hacienda Transitorio V (servicios de ingeniería, arquitectura, topografía obra civil)</field>
         <field name="active" eval="True"/>
     </record>
 
     <record id="AutEx_6" model="aut.ex">
         <field name="code">06</field>
-        <field name="name">Transitorio IX</field>
+        <field name="name">Servicios turísticos inscritos ante el Instituto Costarricense de Turismo (ICT)</field>
         <field name="active" eval="True"/>
     </record>
 
     <record id="AutEx_7" model="aut.ex">
         <field name="code">07</field>
-        <field name="name">Transitorio XVII</field>
+        <field name="name">Transitorio XVII (Recolección, Clasificación, almacenamiento de Reciclaje y reutilizable)</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="AutEx_8" model="aut.ex">
+        <field name="code">08</field>
+        <field name="name">Exoneración a Zona Franca</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="AutEx_9" model="aut.ex">
+        <field name="code">09</field>
+        <field name="name">Exoneración de servicios complementarios para la exportación articulo 11 RLIVA</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="AutEx_10" model="aut.ex">
+        <field name="code">10</field>
+        <field name="name">Órgano de las corporaciones municipales</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="AutEx_11" model="aut.ex">
+        <field name="code">11</field>
+        <field name="name">Exenciones Dirección General de Hacienda Autorización de Impuesto Local Concreta</field>
         <field name="active" eval="True"/>
     </record>
 

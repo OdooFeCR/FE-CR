@@ -32,9 +32,21 @@
         <field name="active">true</field>
     </record>
 
+    <record id="PaymentMethods_6" model="payment.methods">
+        <field name="sequence">06</field>
+        <field name="name">SINPE MOVIL</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="PaymentMethods_7" model="payment.methods">
+        <field name="sequence">07</field>
+        <field name="name">Plataforma Digital</field>
+        <field name="active">true</field>
+    </record>
+
     <record id="PaymentMethods_99" model="payment.methods">
         <field name="sequence">99</field>
-        <field name="name">Otros (se debe indicar el medio de pago)</field>
+        <field name="name">Otros (se debe indicar el medio de pago en la representación gráfica)</field>
         <field name="active">true</field>
     </record>
 

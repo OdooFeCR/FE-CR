@@ -4,13 +4,13 @@
     <!-- identification types -->
     <record id="Identificationtype_01" model="identification.type">
         <field name="code">01</field>
-        <field name="name">Cédula física</field>
+        <field name="name">Cédula Física</field>
         <field name="notes">Se agrega tres ceros antes de iniciar con el número de cédula para completar 12 dígitos</field>
     </record>
 
     <record id="Identificationtype_02" model="identification.type">
         <field name="code">02</field>
-        <field name="name">Cédula jurídica</field>
+        <field name="name">Cédula Jurídica</field>
         <field name="notes">Se debe agregar dos ceros antes de iniciar con el número de cédula para completar 12 dígitos</field>
     </record>
 
@@ -28,8 +28,14 @@
 
     <record id="Identificationtype_05" model="identification.type">
         <field name="code">05</field>
-        <field name="name">Extranjero</field>
-        <field name="notes">Número de identificación en caso de que el receptor sea un extranjero. Máximo 20 caracteres</field>
+        <field name="name">Extranjero No Domiciliado</field>
+        <field name="notes">Este tipo de identificación estará disponible en los Datos del Emisor de la Factura Electrónica de Compra únicamente para el registro de las adquisiciones de servicios o bienes intangibles a proveedores no domiciliados en Costa Rica, según el artículo 29 inciso d) y el Transitorio XV del Reglamento del IVA.</field>
+    </record>
+
+    <record id="Identificationtype_06" model="identification.type">
+        <field name="code">06</field>
+        <field name="name">No Contribuyente</field>
+        <field name="notes">Este tipo de identificación estará disponible en los Datos del Emisor de la Factura Electrónica de Compra únicamente para el registro de las adquisiciones de bienes usados vendidos por un no contribuyente para los efectos contables que corresponda. Estará disponible únicamente cuando en el campo “Condición de la Venta” se haya seleccionado el código 13 “Ventas Bienes Usados No Contribuyentes</field>
     </record>
 
 </odoo>
