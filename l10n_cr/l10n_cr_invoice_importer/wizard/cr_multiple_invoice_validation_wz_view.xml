@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_multiple_invoice_validation_view_form" model="ir.ui.view">
+        <field name="name">cr.multiple.invoice.validation.form</field>
+        <field name="model">cr.multiple.invoice.validation</field>
+        <field name="arch" type="xml">
+            <form string="Multiple invoice validation Wz">
+                <sheet>
+                    <center>
+                        <field name="alert_warning" readonly="1" nolabel="1" />
+                    </center>
+                    <group>
+                        <field name="iva_condition" required="1" />
+                        <field name="company_activity_id"
+                            domain="[('active', '=', True)]"
+                            options='{"no_open": True, "no_create": True}'
+                            required="1" />
+                        <field name="state_invoice_partner" required="1" />
+                        <field name="import_bill_account_id" />
+                        <field name="import_bill_account_analytic_id" />
+                    </group>
+                    <group string="Invoices to Validate">
+                        <field name="invoice_ids" force_save="1" nolabel="1">
+                            <tree>
+                                <field name="partner_id" />
+                                <field name="date_invoice" />
+                                <field name="iva_condition" />
+                                <field name="state" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Validate All" name="run_validate" type="object"
+                        class="oe_highlight" />
+                    <button string="Cancel" class="btn btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        id="cr_multiple_invoice_validation_act"
+        name="Validate Invoices"
+        res_model="cr.multiple.invoice.validation"
+        src_model="account.invoice"
+        view_mode="form"
+        target="new"
+        key2="client_action_multi" />
+</odoo>
