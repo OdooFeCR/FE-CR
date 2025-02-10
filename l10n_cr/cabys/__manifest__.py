@@ -14,6 +14,8 @@
     ],
     'data': [
         'views/cabys_producto_views.xml',
+        'data/pharmaceutical_forms_data.xml',
+        'views/pharmaceutical_form_views.xml',
         'views/cabys_views.xml',
         'views/product_product_views.xml',
         'views/product_template_views.xml',

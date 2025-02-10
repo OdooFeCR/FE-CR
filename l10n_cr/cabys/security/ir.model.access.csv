@@ -17,4 +17,5 @@ full_cabys_categoria6,full_cabys_categoria6,model_cabys_categoria6,base.group_sy
 full_cabys_categoria7,full_cabys_categoria7,model_cabys_categoria7,base.group_system,1,1,1,1
 full_cabys_categoria8,full_cabys_categoria8,model_cabys_categoria8,base.group_system,1,1,1,1
 full_cabys_producto,full_cabys_producto,model_cabys_producto,base.group_system,1,1,1,1
+access_AllUsers_PharmaceuticalForm,pharmaceutical.form,model_pharmaceutical_form,base.group_user,1,0,0,0
 full_cabys_catalogo,cabys.catalog.import.wizard,model_cabys_catalog_import_wizard,base.group_system,1,1,1,1
