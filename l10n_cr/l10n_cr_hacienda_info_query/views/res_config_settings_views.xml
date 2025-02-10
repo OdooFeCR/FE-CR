@@ -8,11 +8,13 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@id='companies']" position="after">
                 <block title="Electronic Invoicing Costa Rica" name="fecr_setting_container">
-                    <setting id="hacienda_settings_config">
+                    <setting
+                            id="hacienda_settings_config">
                         <field name="get_yo_contribuyo_information"/>
 
                         <div class="o_form_label">
-                            <label for="url_base_yo_contribuyo" invisible="get_yo_contribuyo_information == False"/>
+                            <label for="url_base_yo_contribuyo"
+                                   invisible="get_yo_contribuyo_information == False"/>
                         </div>
 
                         <field name="url_base_yo_contribuyo"
@@ -21,7 +23,8 @@
                                help="Endpoint de Yo Contribuyo"
                         />
                         <div class="o_form_label">
-                            <label for="usuario_yo_contribuyo" invisible="get_yo_contribuyo_information == False"/>
+                            <label for="usuario_yo_contribuyo"
+                                   invisible="get_yo_contribuyo_information == False"/>
                         </div>
 
                         <field name="usuario_yo_contribuyo"
@@ -30,16 +33,20 @@
                         />
 
                         <div class="o_form_label">
-                            <label for="token_yo_contribuyo" invisible="get_yo_contribuyo_information == False"/>
+                            <label for="token_yo_contribuyo"
+                                   invisible="get_yo_contribuyo_information == False"/>
                         </div>
 
                         <field name="token_yo_contribuyo"
                                invisible="get_yo_contribuyo_information == False"
                                help="Token de acceso Yo Contribuyo"
                         />
+
                     </setting>
 
-                    <setting id="get_tributary_information" help="Consultas al API tributarias">
+                    <setting
+                            id="get_tributary_information"
+                            help="Consultas al API tributarias">
                         <field name="get_tributary_information"/>
                     </setting>
                 </block>
