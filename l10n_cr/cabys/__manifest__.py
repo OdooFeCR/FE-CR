@@ -32,8 +32,5 @@
             'cabys.cabys_templates.xml',
         ]
     },
-    'external_dependencies': {
-        'python': ['openpyxl'],
-    },
     'installable': True,
 }
