@@ -1,5 +1,3 @@
-
-
 from datetime import datetime, timedelta
 
 import phonenumbers
@@ -82,8 +80,8 @@ class CompanyElectronic(models.Model):
         required=True,
         default='disabled',
         help='Es el ambiente en al cual se le está actualizando el certificado. '
-        'Para el ambiente de calidad (stag), para el ambiente de producción (prod). '
-        'Requerido.'
+             'Para el ambiente de calidad (stag), para el ambiente de producción (prod). '
+             'Requerido.'
     )
 
     frm_pin = fields.Char(
@@ -105,7 +103,7 @@ class CompanyElectronic(models.Model):
         comodel_name='ir.sequence',
         string='Secuencia Aceptación',
         help='Secuencia de confirmacion de aceptación de comprobante electrónico. Dejar en blanco '
-        'y el sistema automaticamente se lo creará.',
+             'y el sistema automaticamente se lo creará.',
         readonly=False,
         copy=False
     )
@@ -114,7 +112,7 @@ class CompanyElectronic(models.Model):
         comodel_name='ir.sequence',
         string='Secuencia Parcial',
         help='Secuencia de confirmación de aceptación parcial de comprobante electrónico. Dejar '
-        'en blanco y el sistema automáticamente se lo creará.',
+             'en blanco y el sistema automáticamente se lo creará.',
         readonly=False,
         copy=False
     )
@@ -122,7 +120,7 @@ class CompanyElectronic(models.Model):
         comodel_name='ir.sequence',
         string='Secuencia Rechazo',
         help='Secuencia de confirmación de rechazo de comprobante electrónico. Dejar '
-        'en blanco y el sistema automáticamente se lo creará.',
+             'en blanco y el sistema automáticamente se lo creará.',
         readonly=False,
         copy=False
     )
@@ -158,11 +156,26 @@ class CompanyElectronic(models.Model):
         default="https://api.hacienda.go.cr/fe/ex?"
     )
 
-    #invoice_is_electronic Boolean
+    # invoice_is_electronic Boolean
     invoice_is_electronic = fields.Boolean(
         string="Invoice Electronic",
         help='Use this option if you use electronic invoice',
         default=False
+    )
+    invoice_provider_type = fields.Selection(
+        selection=[
+            ('external', 'Proveedor Externo'),
+            ('inhouse', 'Desarrollo Local')
+        ],
+        string="Provider Type",
+        required=True,
+        default='inhouse',
+        help='Tipo de proveedor de servicios de facturación electrónica,'
+             ' se utiliza para en el encabezado de los documentos electronicos'
+    )
+    invoice_provider_identification = fields.Char(
+        string="Provider Identification",
+        help='Identificación del proveedor de servicios de facturación electrónica'
     )
 
     # -------------------------------------------------------------------------
@@ -268,7 +281,7 @@ class CompanyElectronic(models.Model):
                 return super().write(vals)
 
             date_expiration_sign = vals.get('date_expiration_sign') and \
-                vals['date_expiration_sign'] or self.date_expiration_sign
+                                   vals['date_expiration_sign'] or self.date_expiration_sign
             # date_expiration_sign = vals.get('date_expiration_sign') and \
             #     datetime.strptime(vals['date_expiration_sign'], '%Y-%m-%d %H:%M:%S') or self.date_expiration_sign
             if date_expiration_sign:
