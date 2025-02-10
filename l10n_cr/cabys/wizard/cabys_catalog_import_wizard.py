@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
-from xlrd import open_workbook
 import logging
 import base64
 import urllib.request
+from openpyxl import load_workbook
+from io import BytesIO
 
 _logger = logging.getLogger(__name__)
 
@@ -15,31 +16,31 @@ _logger = logging.getLogger(__name__)
 categories_map = [
     {
         'category': '1',
-        'code': 0, 
+        'code': 0,
         'description': 1
     },
     {
         'category': '2',
         'code': 2,
-        'description': 3, 
+        'description': 3,
         'subcategory': 0
     },
     {
         'category': '3',
         'code': 4,
-        'description': 5, 
+        'description': 5,
         'subcategory': 2
     },
     {
         'category': '4',
         'code': 6,
-        'description': 7, 
+        'description': 7,
         'subcategory': 4
     },
     {
         'category': '5',
         'code': 8,
-        'description': 9, 
+        'description': 9,
         'subcategory': 6
     },
     {
@@ -74,34 +75,34 @@ products_map = {
 # we'll use this to check if the catalog file is a correct catalog cabys file
 headers_map = [
     {
-        'column': 0,  'header': 'Categoría 1'
+        'column': 0, 'header': 'Categoría 1'
     },
     {
-        'column': 1,  'header': 'Descripción (categoría 1)'
+        'column': 1, 'header': 'Descripción (categoría 1)'
     },
     {
-        'column': 2,  'header': 'Categoría 2'
+        'column': 2, 'header': 'Categoría 2'
     },
     {
-        'column': 3,  'header': 'Descripción (categoría 2)'
+        'column': 3, 'header': 'Descripción (categoría 2)'
     },
     {
-        'column': 4,  'header': 'Categoría 3'
+        'column': 4, 'header': 'Categoría 3'
     },
     {
-        'column': 5,  'header': 'Descripción (categoría 3)'
+        'column': 5, 'header': 'Descripción (categoría 3)'
     },
     {
-        'column': 6,  'header': 'Categoría 4'
+        'column': 6, 'header': 'Categoría 4'
     },
     {
-        'column': 7,  'header': 'Descripción (categoría 4)'
+        'column': 7, 'header': 'Descripción (categoría 4)'
     },
     {
-        'column': 8,  'header': 'Categoría 5'
+        'column': 8, 'header': 'Categoría 5'
     },
     {
-        'column': 9,  'header': 'Descripción (categoría 5)'
+        'column': 9, 'header': 'Descripción (categoría 5)'
     },
     {
         'column': 10, 'header': 'Categoría 6'
@@ -186,17 +187,17 @@ class CabysCatalogImportWizard(models.TransientModel):
             # get catalog file
             excel_file = base64.b64decode(self.cabys_excel_file)
             _logger.info('Loading Cabys catalog from Excel file')
-            # open it as an xlrd workbook
-            workbook = open_workbook(file_contents=excel_file)
+            # open it as an openpyxl workbook
+            workbook = load_workbook(filename=BytesIO(excel_file), data_only=True)
             _logger.info('workbook %s' % workbook)
             # get first sheet, that's where the data is
-            xl_sheet = workbook.sheet_by_index(0)
-            _logger.info('sheet %s name %s' % (xl_sheet, xl_sheet.name))
+            xl_sheet = workbook.worksheets[0]
+            _logger.info('sheet %s name %s' % (xl_sheet, xl_sheet.title))
             # get rows of data from workbook sheet
-            rows = xl_sheet.get_rows()
+            rows = xl_sheet.iter_rows(values_only=True)
             # skip first two header rows
-            rows.__next__()
-            rows.__next__()
+            next(rows)
+            next(rows)
 
             # here we will keep all categories data and products data
             all_categories = {}
@@ -210,19 +211,19 @@ class CabysCatalogImportWizard(models.TransientModel):
                 # get every subcategory for this row
                 for category_map in categories_map:
                     category = category_map['category']
-                    code = row[category_map['code']].value
-                    description = row[category_map['description']].value
+                    code = row[category_map['code']]
+                    description = row[category_map['description']]
                     if code not in all_categories[category]:
                         vals = {'code': code, 'description': description}
                         if 'subcategory' in category_map:
-                            vals['subcategory'] = row[category_map['subcategory']].value
+                            vals['subcategory'] = row[category_map['subcategory']]
                         all_categories[category][code] = vals
 
                 # process product
-                category = row[products_map['category']].value
-                description = row[products_map['description']].value
-                code = row[products_map['code']].value
-                tax_data = row[products_map['tax']].value
+                category = row[products_map['category']]
+                description = row[products_map['description']]
+                code = row[products_map['code']]
+                tax_data = row[products_map['tax']]
                 tax_converted = 0.0
                 if isinstance(tax_data, str) and '%' in tax_data:
                     # Remueve el símbolo de porcentaje y luego divide por 100
@@ -234,10 +235,10 @@ class CabysCatalogImportWizard(models.TransientModel):
                         # Si el valor no es numérico, establece un NaN
                         tax_converted = 0.0
                 tax = tax_converted
-                
-                first_description = row[products_map['first_description']].value
-                second_description = row[products_map['second_description']].value
-                
+
+                first_description = row[products_map['first_description']]
+                second_description = row[products_map['second_description']]
+
                 all_products[code] = {
                     'name': description,
                     'codigo': code,
@@ -268,9 +269,9 @@ class CabysCatalogImportWizard(models.TransientModel):
                             'codigo': record_data['code'], 'name': record_data['description']}
                         if 'subcategory' in record_data:
                             subcategory_field = 'cabys_categoria%s_id' % (
-                                int(category)-1)
+                                    int(category) - 1)
                             vals[subcategory_field] = all_categories[str(
-                                (int(category)-1))][record_data['subcategory']]['id']
+                                (int(category) - 1))][record_data['subcategory']]['id']
                         record_id = self.env[object_name].create(vals)
                         categories_new.append(vals['codigo'])
                     all_categories[category][category_data]['id'] = record_id.id
@@ -311,7 +312,7 @@ class CabysCatalogImportWizard(models.TransientModel):
             products_deleted = record_ids.mapped('codigo')
             _logger.info('Finished updating Cabys catalog')
 
-            return products_new, products_updated,  products_deleted, categories_new, categories_updated, categories_deleted
+            return products_new, products_updated, products_deleted, categories_new, categories_updated, categories_deleted
 
     def update_catalog(self):
         ''' Update the Cabys catalog from an Excel file.
@@ -321,7 +322,7 @@ class CabysCatalogImportWizard(models.TransientModel):
             return
 
         # update the database with the data from the catalog file
-        products_new, products_updated,  products_deleted, categories_new, categories_updated, categories_deleted = self._update_catalog_from_excel_file()
+        products_new, products_updated, products_deleted, categories_new, categories_updated, categories_deleted = self._update_catalog_from_excel_file()
 
         msg = 'El Catálogo Cabys fue actualizado con éxito\n'
         if products_new:
@@ -364,13 +365,13 @@ class CabysCatalogImportWizard(models.TransientModel):
             # get file contents
             excel_file = base64.b64decode(self.cabys_excel_file)
             # open it as an Excel file
-            workbook = open_workbook(file_contents=excel_file)
+            workbook = load_workbook(filename=BytesIO(excel_file), data_only=True)
             # Get first sheet, that's where all the data should be
-            xl_sheet = workbook.sheet_by_index(0)
+            xl_sheet = workbook.worksheets[0]
             # second row has the headers of the file
             # we will check the headers names to infer if this is a Cabys catalog file
             for header in headers_map:
-                cell = xl_sheet.cell(1, header['column'])
+                cell = xl_sheet.cell(row=2, column=header['column'] + 1)
                 if cell.value != header['header']:
                     self.notes = 'El archivo seleccionado no parece ser un catálogo Cabys'
                     self.button_enable = False
@@ -400,26 +401,26 @@ class CabysCatalogImportWizard(models.TransientModel):
             # get Excel file
             excel_file = base64.b64decode(self.cabys_excel_file)
             _logger.info('Loading Cabys catalog from Excel file')
-            # open it as xlrd workbook
-            workbook = open_workbook(file_contents=excel_file)
+            # open it as an openpyxl workbook
+            workbook = load_workbook(filename=BytesIO(excel_file), data_only=True)
             _logger.info('workbook %s' % workbook)
             # get first sheet, that's where the data is
-            xl_sheet = workbook.sheet_by_index(0)
-            _logger.info('Sheet %s name %s' % (xl_sheet, xl_sheet.name))
+            xl_sheet = workbook.worksheets[0]
+            _logger.info('Sheet %s name %s' % (xl_sheet, xl_sheet.title))
             # get rows of data from workbook sheet
-            rows = xl_sheet.get_rows()
+            rows = xl_sheet.iter_rows(values_only=True)
             # skip first two header rows
-            rows.__next__()
-            rows.__next__()
+            next(rows)
+            next(rows)
             # here we will process all the records (rows in catalog file)
             products_codes = []
             # iterate over every row
             for row in rows:
                 # get product data
-                code = row[products_map['code']].value
-                cabys_categoria8_id = row[products_map['category']].value
-                name = row[products_map['description']].value
-                tax_data = row[products_map['tax']].value
+                code = row[products_map['code']]
+                cabys_categoria8_id = row[products_map['category']]
+                name = row[products_map['description']]
+                tax_data = row[products_map['tax']]
                 tax_converted = 0.0
                 if isinstance(tax_data, str) and '%' in tax_data:
                     # Remueve el símbolo de porcentaje y luego divide por 100
@@ -440,8 +441,8 @@ class CabysCatalogImportWizard(models.TransientModel):
                 # if record exist and its values are different, it should be updated
                 if record_id:
                     if record_id.name != name or \
-                       record_id.cabys_categoria8_id.codigo != cabys_categoria8_id or \
-                       record_id.impuesto != impuesto:
+                            record_id.cabys_categoria8_id.codigo != cabys_categoria8_id or \
+                            record_id.impuesto != impuesto:
                         products_updated.append(code)
                 # if record doesn't exist, it should be created
                 else:
