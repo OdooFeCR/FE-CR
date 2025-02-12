@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.point_of_sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="95"/>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <block id="pos_accounting_section" position="before">
+                <h2>Electronic Invoicing Costa Rica</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_electroinc_invoice">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <div class="content-group">
+                                <div>
+                                    <span class="o_form_label">Sequences:</span>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="sucursal" class="col-lg-4 o_light_label"/>
+                                    <field name="sucursal"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="terminal" class="col-lg-4 o_light_label"/>
+                                    <field name="terminal"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_electroinc_invoice">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <div class="content-group">
+                                <div>
+                                    <span class="o_form_label">Sequences:</span>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="FE_sequence_id" class="col-lg-4 o_light_label"/>
+                                    <field name="FE_sequence_id"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="NC_sequence_id" class="col-lg-4 o_light_label"/>
+                                    <field name="NC_sequence_id"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="TE_sequence_id" class="col-lg-4 o_light_label"/>
+                                    <field name="TE_sequence_id"/>
+                                </div>
+                            </div>
+                            <div class="mt16">
+                                <button
+                                    class="btn-link"
+                                    style="padding:0"
+                                    name="create_sequences"
+                                    type="object"
+                                    context="{'pos_config_id': pos_config_id}"
+                                    invisible="FE_sequence_id != False">Create Sequences</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </block>
+        </field>
+    </record>
+
+</odoo>
