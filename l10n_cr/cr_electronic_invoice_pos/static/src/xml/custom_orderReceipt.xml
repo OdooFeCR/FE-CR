@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Electronic_OrderReceipt" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <!-- Adding the Electronic number just after the company info. -->
+        <xpath expr="//div[hasclass('cashier')]" position="before">
+           <div class="pos-receipt-contact">
+                <t t-if="props.data.tipo_documento">
+                        <b>Document Type:</b>
+                        <t t-if="props.data.tipo_documento == 'FE' ">
+                            Electronic Invoice<br/>
+                        </t>
+                        <t t-else="">
+                            Electronic Ticket<br/>
+                        </t>           
+                </t>
+                <t t-if="props.data.number_electronic">
+                        <b>Key:</b>
+                        <span t-esc="props.data.number_electronic.substring(0,25)"/><br/>
+                        <span t-esc="props.data.number_electronic.substring(25,50)"/><br/>
+                    
+                        <b>Consecutive:</b>
+                        <span t-esc="props.data.number_electronic.substring(21,41)"/> 
+                </t>
+           </div>            
+        </xpath> 
+        <!-- Adding the customer name and email. -->
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="inside">           
+            <div class="pos-receipt-contact">
+                <t t-if="props.data.partner">
+                    <b>Customer: <t t-esc="props.data.partner.name"/><br/></b>
+                </t>
+                <t t-if="props.data.partner.email">
+                    Email: <t t-esc="props.data.partner.email"/><br/>
+                </t>
+            </div>           
+        </xpath>
+    </t>
+    
+    <t t-name="eFooter_OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+       <xpath expr="//div[@id='order-date']" position="after">
+            <!-- Adding the footer with the Hacienda label -->
+            <div class="pos-receipt-order-data">
+                <br/>
+                <p>
+                    <span>Autorizada mediante resolución N° DGT-R-033-2019 del 20 de junio de 2019. </span>
+                    <span>Versión del Documento Electrónico: 4.3</span>
+                </p>
+            </div>  
+        </xpath>
+    </t>    
+
+</templates>
