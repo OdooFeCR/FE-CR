@@ -8,13 +8,11 @@
 				<sheet>
 					<group>
 						<field name="notes"/>
-						<field string="Cargar catálogo en archivo de Excel" name="cabys_excel_file" invisible="cabys_excel_file != False"/>			
-
-						<field name="file_url" invisible="cabys_excel_file != False"/>
+						<field name="file_url"/>
 					</group>
 				</sheet>
 				<footer>
-					<button string="Descargar catálogo del BCCR" name="download_catalog" class="btn btn-info" type="object" invisible="cabys_excel_file != False"/>
+					<button string="Descargar catálogo del BCCR" name="download_catalog" class="btn btn-info" type="object"/>
 					<field name="button_enable" invisible="1"/>
 					<button string="Importar Catálogo" name="update_catalog" type="object" class="oe_highlight" invisible="button_enable == False"/>
 					<button string="Cerrar esta ventana" class="btn btn-default" special="cancel"/>

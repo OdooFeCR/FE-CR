@@ -4,7 +4,7 @@
     <!-- product code types -->
     <record id="CodeTypeProduct_01" model="code.type.product">
         <field name="code">01</field>
-        <field name="name">Cédula</field>
+        <field name="name">Código del producto del vendedor </field>
     </record>
 
     <record id="CodeTypeProduct_02" model="code.type.product">

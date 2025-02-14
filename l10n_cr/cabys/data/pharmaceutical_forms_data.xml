@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="formulario_farmaceutico_01" model="pharmaceutical.form">
+            <field name="code">01</field>
+            <field name="name">Anillo vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_02" model="pharmaceutical.form">
+            <field name="code">02</field>
+            <field name="name">Apósito</field>
+        </record>
+        <record id="formulario_farmaceutico_03" model="pharmaceutical.form">
+            <field name="code">03</field>
+            <field name="name">Cápsula</field>
+        </record>
+        <record id="formulario_farmaceutico_04" model="pharmaceutical.form">
+            <field name="code">04</field>
+            <field name="name">Cápsula blanda</field>
+        </record>
+        <record id="formulario_farmaceutico_05" model="pharmaceutical.form">
+            <field name="code">05</field>
+            <field name="name">Cápsula dura</field>
+        </record>
+        <record id="formulario_farmaceutico_06" model="pharmaceutical.form">
+            <field name="code">06</field>
+            <field name="name">Cápsula con gránulos de liberación enterica</field>
+        </record>
+        <record id="formulario_farmaceutico_07" model="pharmaceutical.form">
+            <field name="code">07</field>
+            <field name="name">Cápsula con gránulos de liberación retardada</field>
+        </record>
+        <record id="formulario_farmaceutico_08" model="pharmaceutical.form">
+            <field name="code">08</field>
+            <field name="name">Cápsula de gelatina</field>
+        </record>
+        <record id="formulario_farmaceutico_09" model="pharmaceutical.form">
+            <field name="code">09</field>
+            <field name="name">Cápsula de liberación prolongada</field>
+        </record>
+        <record id="formulario_farmaceutico_10" model="pharmaceutical.form">
+            <field name="code">10</field>
+            <field name="name">Comprimido</field>
+        </record>
+        <record id="formulario_farmaceutico_11" model="pharmaceutical.form">
+            <field name="code">11</field>
+            <field name="name">Comprimido efervescente</field>
+        </record>
+        <record id="formulario_farmaceutico_12" model="pharmaceutical.form">
+            <field name="code">12</field>
+            <field name="name">Comprimido masticable</field>
+        </record>
+        <record id="formulario_farmaceutico_13" model="pharmaceutical.form">
+            <field name="code">13</field>
+            <field name="name">Comprimido recubierto</field>
+        </record>
+        <record id="formulario_farmaceutico_14" model="pharmaceutical.form">
+            <field name="code">14</field>
+            <field name="name">Comprimido sublingual</field>
+        </record>
+        <record id="formulario_farmaceutico_15" model="pharmaceutical.form">
+            <field name="code">15</field>
+            <field name="name">Comprimido soluble</field>
+        </record>
+        <record id="formulario_farmaceutico_16" model="pharmaceutical.form">
+            <field name="code">16</field>
+            <field name="name">Comprimido de liberación modificada</field>
+        </record>
+        <record id="formulario_farmaceutico_17" model="pharmaceutical.form">
+            <field name="code">17</field>
+            <field name="name">Comprimido recubierto de liberación sostenida</field>
+        </record>
+        <record id="formulario_farmaceutico_18" model="pharmaceutical.form">
+            <field name="code">18</field>
+            <field name="name">Comprimido de liberación prolongada</field>
+        </record>
+        <record id="formulario_farmaceutico_19" model="pharmaceutical.form">
+            <field name="code">19</field>
+            <field name="name">Comprimido de liberación retardada</field>
+        </record>
+        <record id="formulario_farmaceutico_20" model="pharmaceutical.form">
+            <field name="code">20</field>
+            <field name="name">Demi</field>
+        </record>
+        <record id="formulario_farmaceutico_21" model="pharmaceutical.form">
+            <field name="code">21</field>
+            <field name="name">Emulsión liposomal hidroalcohólica</field>
+        </record>
+        <record id="formulario_farmaceutico_22" model="pharmaceutical.form">
+            <field name="code">22</field>
+            <field name="name">Depresor vocal en polvo</field>
+        </record>
+        <record id="formulario_farmaceutico_23" model="pharmaceutical.form">
+            <field name="code">23</field>
+            <field name="name">Emulsión</field>
+        </record>
+        <record id="formulario_farmaceutico_24" model="pharmaceutical.form">
+            <field name="code">24</field>
+            <field name="name">Emulsión injectable</field>
+        </record>
+        <record id="formulario_farmaceutico_25" model="pharmaceutical.form">
+            <field name="code">25</field>
+            <field name="name">Emulsión oral</field>
+        </record>
+        <record id="formulario_farmaceutico_26" model="pharmaceutical.form">
+            <field name="code">26</field>
+            <field name="name">Enjuague bucal</field>
+        </record>
+        <record id="formulario_farmaceutico_27" model="pharmaceutical.form">
+            <field name="code">27</field>
+            <field name="name">Gasa medicinal</field>
+        </record>
+        <record id="formulario_farmaceutico_28" model="pharmaceutical.form">
+            <field name="code">28</field>
+            <field name="name">Gas medicinal</field>
+        </record>
+        <record id="formulario_farmaceutico_29" model="pharmaceutical.form">
+            <field name="code">29</field>
+            <field name="name">Gel</field>
+        </record>
+        <record id="formulario_farmaceutico_30" model="pharmaceutical.form">
+            <field name="code">30</field>
+            <field name="name">Gel íntimo</field>
+        </record>
+        <record id="formulario_farmaceutico_31" model="pharmaceutical.form">
+            <field name="code">31</field>
+            <field name="name">Gotas</field>
+        </record>
+        <record id="formulario_farmaceutico_32" model="pharmaceutical.form">
+            <field name="code">32</field>
+            <field name="name">Granulado</field>
+        </record>
+        <record id="formulario_farmaceutico_33" model="pharmaceutical.form">
+            <field name="code">33</field>
+            <field name="name">Granulado efervescente</field>
+        </record>
+        <record id="formulario_farmaceutico_34" model="pharmaceutical.form">
+            <field name="code">34</field>
+            <field name="name">Granulado para suspensión</field>
+        </record>
+        <record id="formulario_farmaceutico_35" model="pharmaceutical.form">
+            <field name="code">35</field>
+            <field name="name">Gránulos</field>
+        </record>
+        <record id="formulario_farmaceutico_36" model="pharmaceutical.form">
+            <field name="code">36</field>
+            <field name="name">Gránulos efervescentes</field>
+        </record>
+        <record id="formulario_farmaceutico_37" model="pharmaceutical.form">
+            <field name="code">37</field>
+            <field name="name">Gránulos para suspensión</field>
+        </record>
+        <record id="formulario_farmaceutico_38" model="pharmaceutical.form">
+            <field name="code">38</field>
+            <field name="name">Jarabe</field>
+        </record>
+        <record id="formulario_farmaceutico_39" model="pharmaceutical.form">
+            <field name="code">39</field>
+            <field name="name">Lámina</field>
+        </record>
+        <record id="formulario_farmaceutico_40" model="pharmaceutical.form">
+            <field name="code">40</field>
+            <field name="name">Lámina oral</field>
+        </record>
+        <record id="formulario_farmaceutico_41" model="pharmaceutical.form">
+            <field name="code">41</field>
+            <field name="name">Líquido</field>
+        </record>
+        <record id="formulario_farmaceutico_42" model="pharmaceutical.form">
+            <field name="code">42</field>
+            <field name="name">Líquido para inyección</field>
+        </record>
+        <record id="formulario_farmaceutico_43" model="pharmaceutical.form">
+            <field name="code">43</field>
+            <field name="name">Líquido para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_44" model="pharmaceutical.form">
+            <field name="code">44</field>
+            <field name="name">Líquido para nebulización</field>
+        </record>
+        <record id="formulario_farmaceutico_45" model="pharmaceutical.form">
+            <field name="code">45</field>
+            <field name="name">Líquido oral</field>
+        </record>
+        <record id="formulario_farmaceutico_46" model="pharmaceutical.form">
+            <field name="code">46</field>
+            <field name="name">Loción</field>
+        </record>
+        <record id="formulario_farmaceutico_47" model="pharmaceutical.form">
+            <field name="code">47</field>
+            <field name="name">Loción para piel</field>
+        </record>
+        <record id="formulario_farmaceutico_48" model="pharmaceutical.form">
+            <field name="code">48</field>
+            <field name="name">Loción para suspensión</field>
+        </record>
+        <record id="formulario_farmaceutico_49" model="pharmaceutical.form">
+            <field name="code">49</field>
+            <field name="name">Manteca</field>
+        </record>
+        <record id="formulario_farmaceutico_50" model="pharmaceutical.form">
+            <field name="code">50</field>
+            <field name="name">Masa</field>
+        </record>
+        <record id="formulario_farmaceutico_51" model="pharmaceutical.form">
+            <field name="code">51</field>
+            <field name="name">Masa para supositorios</field>
+        </record>
+        <record id="formulario_farmaceutico_52" model="pharmaceutical.form">
+            <field name="code">52</field>
+            <field name="name">Masa para supositorios rectales</field>
+        </record>
+        <record id="formulario_farmaceutico_53" model="pharmaceutical.form">
+            <field name="code">53</field>
+            <field name="name">Masa para supositorios vaginales</field>
+        </record>
+        <record id="formulario_farmaceutico_54" model="pharmaceutical.form">
+            <field name="code">54</field>
+            <field name="name">Masa para supositorios uretrales</field>
+        </record>
+        <record id="formulario_farmaceutico_55" model="pharmaceutical.form">
+            <field name="code">55</field>
+            <field name="name">Masa para supositorios orales</field>
+        </record>
+        <record id="formulario_farmaceutico_56" model="pharmaceutical.form">
+            <field name="code">56</field>
+            <field name="name">Parche</field>
+        </record>
+        <record id="formulario_farmaceutico_57" model="pharmaceutical.form">
+            <field name="code">57</field>
+            <field name="name">Parche transdérmico</field>
+        </record>
+        <record id="formulario_farmaceutico_58" model="pharmaceutical.form">
+            <field name="code">58</field>
+            <field name="name">Pasta</field>
+        </record>
+        <record id="formulario_farmaceutico_59" model="pharmaceutical.form">
+            <field name="code">59</field>
+            <field name="name">Pasta tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_60" model="pharmaceutical.form">
+            <field name="code">60</field>
+            <field name="name">Piel</field>
+        </record>
+        <record id="formulario_farmaceutico_61" model="pharmaceutical.form">
+            <field name="code">61</field>
+            <field name="name">Piel con protección para infecciones</field>
+        </record>
+        <record id="formulario_farmaceutico_62" model="pharmaceutical.form">
+            <field name="code">62</field>
+            <field name="name">Piel con protección para irritación</field>
+        </record>
+        <record id="formulario_farmaceutico_63" model="pharmaceutical.form">
+            <field name="code">63</field>
+            <field name="name">Piel para supositorios</field>
+        </record>
+        <record id="formulario_farmaceutico_64" model="pharmaceutical.form">
+            <field name="code">64</field>
+            <field name="name">Piel para supositorios vaginales</field>
+        </record>
+        <record id="formulario_farmaceutico_65" model="pharmaceutical.form">
+            <field name="code">65</field>
+            <field name="name">Piel para supositorios rectales</field>
+        </record>
+        <record id="formulario_farmaceutico_66" model="pharmaceutical.form">
+            <field name="code">66</field>
+            <field name="name">Solución</field>
+        </record>
+        <record id="formulario_farmaceutico_67" model="pharmaceutical.form">
+            <field name="code">67</field>
+            <field name="name">Solución acuosa</field>
+        </record>
+        <record id="formulario_farmaceutico_68" model="pharmaceutical.form">
+            <field name="code">68</field>
+            <field name="name">Solución concentrada</field>
+        </record>
+        <record id="formulario_farmaceutico_69" model="pharmaceutical.form">
+            <field name="code">69</field>
+            <field name="name">Solución de inyección</field>
+        </record>
+        <record id="formulario_farmaceutico_70" model="pharmaceutical.form">
+            <field name="code">70</field>
+            <field name="name">Solución de infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_71" model="pharmaceutical.form">
+            <field name="code">71</field>
+            <field name="name">Solución de nebulización</field>
+        </record>
+        <record id="formulario_farmaceutico_72" model="pharmaceutical.form">
+            <field name="code">72</field>
+            <field name="name">Solución oral</field>
+        </record>
+        <record id="formulario_farmaceutico_73" model="pharmaceutical.form">
+            <field name="code">73</field>
+            <field name="name">Solución tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_74" model="pharmaceutical.form">
+            <field name="code">74</field>
+            <field name="name">Suero</field>
+        </record>
+        <record id="formulario_farmaceutico_75" model="pharmaceutical.form">
+            <field name="code">75</field>
+            <field name="name">Suero para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_76" model="pharmaceutical.form">
+            <field name="code">76</field>
+            <field name="name">Suero para inyección</field>
+        </record>
+        <record id="formulario_farmaceutico_77" model="pharmaceutical.form">
+            <field name="code">77</field>
+            <field name="name">Suero para nebulización</field>
+        </record>
+        <record id="formulario_farmaceutico_78" model="pharmaceutical.form">
+            <field name="code">78</field>
+            <field name="name">Suero para solución</field>
+        </record>
+        <record id="formulario_farmaceutico_79" model="pharmaceutical.form">
+            <field name="code">79</field>
+            <field name="name">Suero para supositorios</field>
+        </record>
+        <record id="formulario_farmaceutico_80" model="pharmaceutical.form">
+            <field name="code">80</field>
+            <field name="name">Suero para suspensión</field>
+        </record>
+        <record id="formulario_farmaceutico_81" model="pharmaceutical.form">
+            <field name="code">81</field>
+            <field name="name">Suero para vía oral</field>
+        </record>
+        <record id="formulario_farmaceutico_82" model="pharmaceutical.form">
+            <field name="code">82</field>
+            <field name="name">Suero para vía tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_83" model="pharmaceutical.form">
+            <field name="code">83</field>
+            <field name="name">Tableta</field>
+        </record>
+        <record id="formulario_farmaceutico_84" model="pharmaceutical.form">
+            <field name="code">84</field>
+            <field name="name">Tableta efervescente</field>
+        </record>
+        <record id="formulario_farmaceutico_85" model="pharmaceutical.form">
+            <field name="code">85</field>
+            <field name="name">Tableta masticable</field>
+        </record>
+        <record id="formulario_farmaceutico_86" model="pharmaceutical.form">
+            <field name="code">86</field>
+            <field name="name">Tableta recubierta</field>
+        </record>
+        <record id="formulario_farmaceutico_87" model="pharmaceutical.form">
+            <field name="code">87</field>
+            <field name="name">Tableta sublingual</field>
+        </record>
+        <record id="formulario_farmaceutico_88" model="pharmaceutical.form">
+            <field name="code">88</field>
+            <field name="name">Tableta soluble</field>
+        </record>
+        <record id="formulario_farmaceutico_89" model="pharmaceutical.form">
+            <field name="code">89</field>
+            <field name="name">Tableta de liberación prolongada</field>
+        </record>
+        <record id="formulario_farmaceutico_90" model="pharmaceutical.form">
+            <field name="code">90</field>
+            <field name="name">Tableta de liberación retardada</field>
+        </record>
+        <record id="formulario_farmaceutico_91" model="pharmaceutical.form">
+            <field name="code">91</field>
+            <field name="name">Tableta efervescente para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_92" model="pharmaceutical.form">
+            <field name="code">92</field>
+            <field name="name">Tableta masticable para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_93" model="pharmaceutical.form">
+            <field name="code">93</field>
+            <field name="name">Tableta recubierta para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_94" model="pharmaceutical.form">
+            <field name="code">94</field>
+            <field name="name">Tableta sublingual para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_95" model="pharmaceutical.form">
+            <field name="code">95</field>
+            <field name="name">Tableta soluble para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_96" model="pharmaceutical.form">
+            <field name="code">96</field>
+            <field name="name">Tableta de liberación prolongada para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_97" model="pharmaceutical.form">
+            <field name="code">97</field>
+            <field name="name">Tableta de liberación retardada para infusión</field>
+        </record>
+        <record id="formulario_farmaceutico_98" model="pharmaceutical.form">
+            <field name="code">98</field>
+            <field name="name">Tópico</field>
+        </record>
+        <record id="formulario_farmaceutico_99" model="pharmaceutical.form">
+            <field name="code">99</field>
+            <field name="name">Vía oral</field>
+        </record>
+        <record id="formulario_farmaceutico_100" model="pharmaceutical.form">
+            <field name="code">100</field>
+            <field name="name">Vía tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_101" model="pharmaceutical.form">
+            <field name="code">101</field>
+            <field name="name">Vía subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_102" model="pharmaceutical.form">
+            <field name="code">102</field>
+            <field name="name">Vía intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_103" model="pharmaceutical.form">
+            <field name="code">103</field>
+            <field name="name">Vía intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_104" model="pharmaceutical.form">
+            <field name="code">104</field>
+            <field name="name">Vía intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_105" model="pharmaceutical.form">
+            <field name="code">105</field>
+            <field name="name">Vía intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_106" model="pharmaceutical.form">
+            <field name="code">106</field>
+            <field name="name">Vía ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_107" model="pharmaceutical.form">
+            <field name="code">107</field>
+            <field name="name">Vía rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_108" model="pharmaceutical.form">
+            <field name="code">108</field>
+            <field name="name">Vía vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_109" model="pharmaceutical.form">
+            <field name="code">109</field>
+            <field name="name">Vía uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_110" model="pharmaceutical.form">
+            <field name="code">110</field>
+            <field name="name">Vía sublingual</field>
+        </record>
+        <record id="formulario_farmaceutico_111" model="pharmaceutical.form">
+            <field name="code">111</field>
+            <field name="name">Vía oral y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_112" model="pharmaceutical.form">
+            <field name="code">112</field>
+            <field name="name">Vía oral y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_113" model="pharmaceutical.form">
+            <field name="code">113</field>
+            <field name="name">Vía oral y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_114" model="pharmaceutical.form">
+            <field name="code">114</field>
+            <field name="name">Vía oral y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_115" model="pharmaceutical.form">
+            <field name="code">115</field>
+            <field name="name">Vía oral y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_116" model="pharmaceutical.form">
+            <field name="code">116</field>
+            <field name="name">Vía oral y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_117" model="pharmaceutical.form">
+            <field name="code">117</field>
+            <field name="name">Vía oral y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_118" model="pharmaceutical.form">
+            <field name="code">118</field>
+            <field name="name">Vía oral y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_119" model="pharmaceutical.form">
+            <field name="code">119</field>
+            <field name="name">Vía oral y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_120" model="pharmaceutical.form">
+            <field name="code">120</field>
+            <field name="name">Vía oral y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_121" model="pharmaceutical.form">
+            <field name="code">121</field>
+            <field name="name">Vía subcutánea y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_122" model="pharmaceutical.form">
+            <field name="code">122</field>
+            <field name="name">Vía subcutánea y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_123" model="pharmaceutical.form">
+            <field name="code">123</field>
+            <field name="name">Vía subcutánea y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_124" model="pharmaceutical.form">
+            <field name="code">124</field>
+            <field name="name">Vía subcutánea y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_125" model="pharmaceutical.form">
+            <field name="code">125</field>
+            <field name="name">Vía subcutánea y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_126" model="pharmaceutical.form">
+            <field name="code">126</field>
+            <field name="name">Vía subcutánea y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_127" model="pharmaceutical.form">
+            <field name="code">127</field>
+            <field name="name">Vía subcutánea y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_128" model="pharmaceutical.form">
+            <field name="code">128</field>
+            <field name="name">Vía subcutánea y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_129" model="pharmaceutical.form">
+            <field name="code">129</field>
+            <field name="name">Vía subcutánea y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_130" model="pharmaceutical.form">
+            <field name="code">130</field>
+            <field name="name">Vía subcutánea y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_131" model="pharmaceutical.form">
+            <field name="code">131</field>
+            <field name="name">Vía intravenosa y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_132" model="pharmaceutical.form">
+            <field name="code">132</field>
+            <field name="name">Vía intravenosa y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_133" model="pharmaceutical.form">
+            <field name="code">133</field>
+            <field name="name">Vía intravenosa y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_134" model="pharmaceutical.form">
+            <field name="code">134</field>
+            <field name="name">Vía intravenosa y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_135" model="pharmaceutical.form">
+            <field name="code">135</field>
+            <field name="name">Vía intravenosa y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_136" model="pharmaceutical.form">
+            <field name="code">136</field>
+            <field name="name">Vía intravenosa y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_137" model="pharmaceutical.form">
+            <field name="code">137</field>
+            <field name="name">Vía intravenosa y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_138" model="pharmaceutical.form">
+            <field name="code">138</field>
+            <field name="name">Vía intravenosa y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_139" model="pharmaceutical.form">
+            <field name="code">139</field>
+            <field name="name">Vía intravenosa y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_140" model="pharmaceutical.form">
+            <field name="code">140</field>
+            <field name="name">Vía intravenosa y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_141" model="pharmaceutical.form">
+            <field name="code">141</field>
+            <field name="name">Vía intramuscular y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_142" model="pharmaceutical.form">
+            <field name="code">142</field>
+            <field name="name">Vía intramuscular y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_143" model="pharmaceutical.form">
+            <field name="code">143</field>
+            <field name="name">Vía intramuscular y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_144" model="pharmaceutical.form">
+            <field name="code">144</field>
+            <field name="name">Vía intramuscular y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_145" model="pharmaceutical.form">
+            <field name="code">145</field>
+            <field name="name">Vía intramuscular y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_146" model="pharmaceutical.form">
+            <field name="code">146</field>
+            <field name="name">Vía intramuscular y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_147" model="pharmaceutical.form">
+            <field name="code">147</field>
+            <field name="name">Vía intramuscular y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_148" model="pharmaceutical.form">
+            <field name="code">148</field>
+            <field name="name">Vía intramuscular y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_149" model="pharmaceutical.form">
+            <field name="code">149</field>
+            <field name="name">Vía intramuscular y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_150" model="pharmaceutical.form">
+            <field name="code">150</field>
+            <field name="name">Vía intramuscular y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_151" model="pharmaceutical.form">
+            <field name="code">151</field>
+            <field name="name">Vía intradérmica y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_152" model="pharmaceutical.form">
+            <field name="code">152</field>
+            <field name="name">Vía intradérmica y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_153" model="pharmaceutical.form">
+            <field name="code">153</field>
+            <field name="name">Vía intradérmica y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_154" model="pharmaceutical.form">
+            <field name="code">154</field>
+            <field name="name">Vía intradérmica y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_155" model="pharmaceutical.form">
+            <field name="code">155</field>
+            <field name="name">Vía intradérmica y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_156" model="pharmaceutical.form">
+            <field name="code">156</field>
+            <field name="name">Vía intradérmica y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_157" model="pharmaceutical.form">
+            <field name="code">157</field>
+            <field name="name">Vía intradérmica y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_158" model="pharmaceutical.form">
+            <field name="code">158</field>
+            <field name="name">Vía intradérmica y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_159" model="pharmaceutical.form">
+            <field name="code">159</field>
+            <field name="name">Vía intradérmica y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_160" model="pharmaceutical.form">
+            <field name="code">160</field>
+            <field name="name">Vía intradérmica y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_161" model="pharmaceutical.form">
+            <field name="code">161</field>
+            <field name="name">Vía intranasal y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_162" model="pharmaceutical.form">
+            <field name="code">162</field>
+            <field name="name">Vía intranasal y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_163" model="pharmaceutical.form">
+            <field name="code">163</field>
+            <field name="name">Vía intranasal y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_164" model="pharmaceutical.form">
+            <field name="code">164</field>
+            <field name="name">Vía intranasal y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_165" model="pharmaceutical.form">
+            <field name="code">165</field>
+            <field name="name">Vía intranasal y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_166" model="pharmaceutical.form">
+            <field name="code">166</field>
+            <field name="name">Vía intranasal y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_167" model="pharmaceutical.form">
+            <field name="code">167</field>
+            <field name="name">Vía intranasal y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_168" model="pharmaceutical.form">
+            <field name="code">168</field>
+            <field name="name">Vía intranasal y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_169" model="pharmaceutical.form">
+            <field name="code">169</field>
+            <field name="name">Vía intranasal y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_170" model="pharmaceutical.form">
+            <field name="code">170</field>
+            <field name="name">Vía intranasal y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_171" model="pharmaceutical.form">
+            <field name="code">171</field>
+            <field name="name">Vía ocular y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_172" model="pharmaceutical.form">
+            <field name="code">172</field>
+            <field name="name">Vía ocular y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_173" model="pharmaceutical.form">
+            <field name="code">173</field>
+            <field name="name">Vía ocular y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_174" model="pharmaceutical.form">
+            <field name="code">174</field>
+            <field name="name">Vía ocular y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_175" model="pharmaceutical.form">
+            <field name="code">175</field>
+            <field name="name">Vía ocular y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_176" model="pharmaceutical.form">
+            <field name="code">176</field>
+            <field name="name">Vía ocular y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_177" model="pharmaceutical.form">
+            <field name="code">177</field>
+            <field name="name">Vía ocular y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_178" model="pharmaceutical.form">
+            <field name="code">178</field>
+            <field name="name">Vía ocular y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_179" model="pharmaceutical.form">
+            <field name="code">179</field>
+            <field name="name">Vía ocular y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_180" model="pharmaceutical.form">
+            <field name="code">180</field>
+            <field name="name">Vía ocular y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_181" model="pharmaceutical.form">
+            <field name="code">181</field>
+            <field name="name">Vía rectal y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_182" model="pharmaceutical.form">
+            <field name="code">182</field>
+            <field name="name">Vía rectal y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_183" model="pharmaceutical.form">
+            <field name="code">183</field>
+            <field name="name">Vía rectal y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_184" model="pharmaceutical.form">
+            <field name="code">184</field>
+            <field name="name">Vía rectal y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_185" model="pharmaceutical.form">
+            <field name="code">185</field>
+            <field name="name">Vía rectal y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_186" model="pharmaceutical.form">
+            <field name="code">186</field>
+            <field name="name">Vía rectal y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_187" model="pharmaceutical.form">
+            <field name="code">187</field>
+            <field name="name">Vía rectal y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_188" model="pharmaceutical.form">
+            <field name="code">188</field>
+            <field name="name">Vía rectal y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_189" model="pharmaceutical.form">
+            <field name="code">189</field>
+            <field name="name">Vía rectal y vaginal</field>
+        </record>
+        <record id="formulario_farmaceutico_190" model="pharmaceutical.form">
+            <field name="code">190</field>
+            <field name="name">Vía rectal y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_191" model="pharmaceutical.form">
+            <field name="code">191</field>
+            <field name="name">Vía vaginal y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_192" model="pharmaceutical.form">
+            <field name="code">192</field>
+            <field name="name">Vía vaginal y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_193" model="pharmaceutical.form">
+            <field name="code">193</field>
+            <field name="name">Vía vaginal y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_194" model="pharmaceutical.form">
+            <field name="code">194</field>
+            <field name="name">Vía vaginal y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_195" model="pharmaceutical.form">
+            <field name="code">195</field>
+            <field name="name">Vía vaginal y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_196" model="pharmaceutical.form">
+            <field name="code">196</field>
+            <field name="name">Vía vaginal y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_197" model="pharmaceutical.form">
+            <field name="code">197</field>
+            <field name="name">Vía vaginal y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_198" model="pharmaceutical.form">
+            <field name="code">198</field>
+            <field name="name">Vía vaginal y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_199" model="pharmaceutical.form">
+            <field name="code">199</field>
+            <field name="name">Vía vaginal y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_200" model="pharmaceutical.form">
+            <field name="code">200</field>
+            <field name="name">Vía vaginal y uretral</field>
+        </record>
+        <record id="formulario_farmaceutico_201" model="pharmaceutical.form">
+            <field name="code">201</field>
+            <field name="name">Vía uretral y tópica</field>
+        </record>
+        <record id="formulario_farmaceutico_202" model="pharmaceutical.form">
+            <field name="code">202</field>
+            <field name="name">Vía uretral y oral</field>
+        </record>
+        <record id="formulario_farmaceutico_203" model="pharmaceutical.form">
+            <field name="code">203</field>
+            <field name="name">Vía uretral y subcutánea</field>
+        </record>
+        <record id="formulario_farmaceutico_204" model="pharmaceutical.form">
+            <field name="code">204</field>
+            <field name="name">Vía uretral y intravenosa</field>
+        </record>
+        <record id="formulario_farmaceutico_205" model="pharmaceutical.form">
+            <field name="code">205</field>
+            <field name="name">Vía uretral y intramuscular</field>
+        </record>
+        <record id="formulario_farmaceutico_206" model="pharmaceutical.form">
+            <field name="code">206</field>
+            <field name="name">Vía uretral y intradérmica</field>
+        </record>
+        <record id="formulario_farmaceutico_207" model="pharmaceutical.form">
+            <field name="code">207</field>
+            <field name="name">Vía uretral y intranasal</field>
+        </record>
+        <record id="formulario_farmaceutico_208" model="pharmaceutical.form">
+            <field name="code">208</field>
+            <field name="name">Vía uretral y ocular</field>
+        </record>
+        <record id="formulario_farmaceutico_209" model="pharmaceutical.form">
+            <field name="code">209</field>
+            <field name="name">Vía uretral y rectal</field>
+        </record>
+        <record id="formulario_farmaceutico_210" model="pharmaceutical.form">
+            <field name="code">210</field>
+            <field name="name">Vía uretral y vaginal</field>
+        </record>
+		<record id="formulario_farmaceutico_211" model="pharmaceutical.form">
+			<field name="code">211</field>
+			<field name="name">Vía uretral y tópica</field>
+		</record>
+		<record id="formulario_farmaceutico_212" model="pharmaceutical.form">
+			<field name="code">212</field>
+			<field name="name">Vía uretral y oral</field>
+		</record>
+		<record id="formulario_farmaceutico_213" model="pharmaceutical.form">
+			<field name="code">213</field>
+			<field name="name">Vía uretral y subcutánea</field>
+		</record>
+		<record id="formulario_farmaceutico_214" model="pharmaceutical.form">
+			<field name="code">214</field>
+			<field name="name">Vía uretral y intravenosa</field>
+		</record>
+		<record id="formulario_farmaceutico_215" model="pharmaceutical.form">
+			<field name="code">215</field>
+			<field name="name">Vía uretral y intramuscular</field>
+		</record>
+		<record id="formulario_farmaceutico_216" model="pharmaceutical.form">
+			<field name="code">216</field>
+			<field name="name">Vía uretral y intradérmica</field>
+		</record>
+		<record id="formulario_farmaceutico_217" model="pharmaceutical.form">
+			<field name="code">217</field>
+			<field name="name">Vía uretral y intranasal</field>
+		</record>
+		<record id="formulario_farmaceutico_218" model="pharmaceutical.form">
+			<field name="code">218</field>
+			<field name="name">Vía uretral y ocular</field>
+		</record>
+		<record id="formulario_farmaceutico_219" model="pharmaceutical.form">
+			<field name="code">219</field>
+			<field name="name">Vía uretral y rectal</field>
+		</record>
+		<record id="formulario_farmaceutico_220" model="pharmaceutical.form">
+			<field name="code">220</field>
+			<field name="name">Vía uretral y vaginal</field>
+		</record>
+		<record id="formulario_farmaceutico_221" model="pharmaceutical.form">
+			<field name="code">221</field>
+			<field name="name">Vía uretral y subcutánea</field>
+		</record>
+		<record id="formulario_farmaceutico_222" model="pharmaceutical.form">
+			<field name="code">222</field>
+			<field name="name">Vía uretral y intravenosa</field>
+		</record>
+		<record id="formulario_farmaceutico_223" model="pharmaceutical.form">
+			<field name="code">223</field>
+			<field name="name">Vía uretral y intramuscular</field>
+		</record>
+		<record id="formulario_farmaceutico_224" model="pharmaceutical.form">
+			<field name="code">224</field>
+			<field name="name">Vía uretral y intradérmica</field>
+		</record>
+		<record id="formulario_farmaceutico_225" model="pharmaceutical.form">
+			<field name="code">225</field>
+			<field name="name">Vía uretral y intranasal</field>
+		</record>
+		<record id="formulario_farmaceutico_226" model="pharmaceutical.form">
+			<field name="code">226</field>
+			<field name="name">Vía uretral y ocular</field>
+		</record>
+		<record id="formulario_farmaceutico_227" model="pharmaceutical.form">
+			<field name="code">227</field>
+			<field name="name">Vía uretral y rectal</field>
+		</record>
+		<record id="formulario_farmaceutico_228" model="pharmaceutical.form">
+			<field name="code">228</field>
+			<field name="name">Truante</field>
+		</record>
+    </data>
+</odoo>

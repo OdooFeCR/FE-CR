@@ -58,6 +58,11 @@
                                     <field name="vat"/>
                                     <field name="identification_id"/>
                                     <field name="currency_id"/>
+                                    <field name="invoice_provider_type"/>
+                                    <field name="invoice_provider_identification"
+                                           invisible="invoice_provider_type == 'inhouse'"
+                                           required="invoice_provider_type == 'external'"
+                                    />
                                 </group>
 
                                 <group string="Ubicación">

@@ -58,7 +58,7 @@
 
     <record id="ReferenceDocument_10" model="reference.document">
         <field name="code">10</field>
-        <field name="name">Sustituye factura rechazada por el Ministerio de Hacienda</field>
+        <field name="name">Comprobante electrónico rechazado por el Ministerio de Hacienda</field>
         <field name="active">true</field>
     </record>
 
@@ -89,6 +89,24 @@
     <record id="ReferenceDocument_15" model="reference.document">
         <field name="code">15</field>
         <field name="name">Sustituye una Factura Electronica de Compra</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceDocument_16" model="reference.document">
+        <field name="code">16</field>
+        <field name="name">Comprobante de Proveedor No Domiciliado</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceDocument_17" model="reference.document">
+        <field name="code">17</field>
+        <field name="name">Nota de Crédito a Factura Electrónica de Compra</field>
+        <field name="active">true</field>
+    </record>
+
+    <record id="ReferenceDocument_18" model="reference.document">
+        <field name="code">18</field>
+        <field name="name">Nota de Débito a Factura Electrónica de Compra</field>
         <field name="active">true</field>
     </record>
 

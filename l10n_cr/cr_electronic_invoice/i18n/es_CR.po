@@ -578,6 +578,11 @@ msgid "Cryptographic Key"
 msgstr "Llave criptográfica"
 
 #. module: cr_electronic_invoice
+#: model:ir.model.fields,field_description:cr_electronic_invoice.field_res_company__signature
+msgid "Provider Type"
+msgstr "Tipo de proveedor de sistemas"
+
+#. module: cr_electronic_invoice
 #. odoo-python
 #: code:addons/cr_electronic_invoice/models/account_move.py:0
 #, python-format

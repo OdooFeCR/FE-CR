@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="cr_electronic_invoice.view_move_form_inherit"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='economic_activity_id']" position="after">
+                <field name="iva_condition"
+                
+                required="['&amp;', ('move_type', 'in', ['in_invoice', 'in_refund']), ('tipo_documento', 'in', ['FE', 'FEC'])]"
+                invisible="['move_type', 'not in', ['in_invoice', 'in_refund']]"/>
+
+                
+                <field name="company_activity_id"
+                required="['&amp;', ('move_type', 'in', ['in_invoice', 'in_refund']), ('tipo_documento', 'in', ['FE', 'FEC'])]" 
+                invisible="['move_type', 'not in', ['in_invoice', 'in_refund']]" 
+                options='{"no_open": True, "no_create": True}'/>
+
+                <field name="move_type"/>
+            </xpath>
+
+            <xpath expr="//field[@name='economic_activity_id']" position="attributes">
+                <attribute name="attrs"
+                           required="(move_type in ('out_invoice', 'out_refund')) or (tipo_documento in ('FE', 'FEC'))"
+                           invisible="(move_type not in ('out_invoice', 'out_refund')) or (tipo_documento not in ('FE', 'FEC'))"/>
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
