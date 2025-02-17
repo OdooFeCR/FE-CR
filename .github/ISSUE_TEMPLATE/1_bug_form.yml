@@ -5,8 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Gracias por tomarse el tiempo para reportar un error, esta contribución es muy importante. Asegúrese de buscar en los issues existentes si el problema aún no se ha reportado.
-      "
+        Gracias por tomarse el tiempo para reportar un error, esta contribución es muy importante. Asegúrese de buscar en los issues existentes si el problema aún no se ha reportado."
   - type: checkboxes
     id: version
     attributes:
