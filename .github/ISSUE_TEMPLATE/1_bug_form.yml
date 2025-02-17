@@ -1,0 +1,46 @@
+name: Bug
+description: Reportar un error 
+title: '[17.0] module: description'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por tomarse el tiempo para reportar un error, esta contribución es muy importante. Asegúrese de buscar en los issues existentes si el problema aún no se ha reportado.
+      "
+  - type: checkboxes
+    id: version
+    attributes:
+      label: Versión de Odoo
+      description: ¿En qué versiones de Odoo ocurre su problema?
+      options:
+        - label: "17.0"
+        - label: "18.0"
+
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+      Describa cómo reproducir el problema con pasos claros.
+      - Comportamiento actual:
+      - Comportamiento esperado:
+      - Enlace a video/captura de pantalla (opcional):
+  - type: textarea
+    id: howtoreproduce
+    attributes:
+      label: Pasos para reproducir
+      description:
+      placeholder: |
+        - Ir a facturación;
+        - Selecciona una factura y dar click en crear factura;
+        
+        Comportamiento actual: seguimiento.
+        Comportamiento esperado: crea un borrador de factura.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: CCopie y pegue el log completo o el mensaje de error en caso que lo tenga. 
+      render: shell

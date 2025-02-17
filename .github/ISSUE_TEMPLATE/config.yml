@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Incidentes de Seguridad"
+    url: https://www.odoo.com/security-report
+    about: "En caso de tener algún incidente de seguridad, por favor contactar al equipo de Odoo."
+
