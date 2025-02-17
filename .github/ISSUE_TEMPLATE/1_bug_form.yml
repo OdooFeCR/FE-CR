@@ -20,10 +20,10 @@ body:
   - type: markdown
     attributes:
       value: |
-      Describa cómo reproducir el problema con pasos claros.
-      - Comportamiento actual:
-      - Comportamiento esperado:
-      - Enlace a video/captura de pantalla (opcional):
+        Describa cómo reproducir el problema con pasos claros.
+        - Comportamiento actual:
+        - Comportamiento esperado:
+        - Enlace a video/captura de pantalla (opcional):
   - type: textarea
     id: howtoreproduce
     attributes:
