@@ -41,5 +41,5 @@ body:
     id: logs
     attributes:
       label: Logs
-      description: CCopie y pegue el log completo o el mensaje de error en caso que lo tenga. 
+      description: Copie y pegue el log completo o el mensaje de error en caso que lo tenga. 
       render: shell
