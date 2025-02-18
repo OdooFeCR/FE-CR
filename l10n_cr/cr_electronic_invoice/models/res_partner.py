@@ -32,6 +32,10 @@ class PartnerElectronic(models.Model):
         string="It's export",
         default=False
     )
+    inscribed = fields.Boolean(
+        string="Inscribed",
+        default=False
+    )
 
     # === Economic Activity fields === #
 

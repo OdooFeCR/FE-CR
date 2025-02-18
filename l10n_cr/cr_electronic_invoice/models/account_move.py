@@ -491,7 +491,9 @@ class AccountInvoiceElectronic(models.Model):
             if self.partner_id and self.partner_id.vat and not self.partner_id.identification_id:
                 raise UserError(_('Select the type of client identification in your profile'))
 
-            if tipo_documento == 'FE' and (not self.partner_id.vat or self.partner_id.identification_id.code == '05'):
+            if tipo_documento == 'FE' and (not self.partner_id.vat
+                                           or self.partner_id.identification_id.code == '05'
+                                           or self.partner_id.incribed == False):
                 tipo_documento = 'TE'
                 self.tipo_documento = 'TE'
             if tipo_documento == 'FE':

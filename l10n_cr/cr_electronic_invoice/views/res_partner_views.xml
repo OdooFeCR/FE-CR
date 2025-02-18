@@ -15,17 +15,21 @@
 
             <field name="vat" position="after">
                 <field name="identification_id"/>
+                <field name="inscribed"/>
                 <field name="supplier_rank" invisible="1" readonly="1"/>
             </field>
 
             <xpath expr="//form/sheet/notebook" position="before">
                 <group col="7">
                     <separator colspan="7"/>
-                    <field name="activity_id" domain="[('id', 'in', economic_activities_ids)]" options="{&quot;no_create&quot;: True, &quot;active_test&quot;: False}" colspan="5" />
-                    <button name="action_get_economic_activities" type="object" string="Consultar Actividad Economica en Hacienda" colspan="2" />
-                    <field name="economic_activities_ids" readonly="0" widget="section_and_note_one2many" mode="tree" context="{'partner_id': id}" colspan="7">
+                    <field name="activity_id" domain="[('id', 'in', economic_activities_ids)]"
+                           options="{&quot;no_create&quot;: True, &quot;active_test&quot;: False}" colspan="5"/>
+                    <button name="action_get_economic_activities" type="object"
+                            string="Consultar Actividad Economica en Hacienda" colspan="2"/>
+                    <field name="economic_activities_ids" readonly="0" widget="section_and_note_one2many" mode="tree"
+                           context="{'partner_id': id}" colspan="7">
                         <tree editable="bottom">
-                            <field name="code" />
+                            <field name="code"/>
                             <field name="name"/>
                             <field name="sale_type"/>
                         </tree>
@@ -35,8 +39,8 @@
 
             <field name="category_id" position="after">
 
-                <field name="has_exoneration" invisible="(supplier_rank > 0)" />
-                <field name="export" invisible="(supplier_rank > 0)" />
+                <field name="has_exoneration" invisible="(supplier_rank > 0)"/>
+                <field name="export" invisible="(supplier_rank > 0)"/>
             </field>
 
             <xpath expr="//page[3]" position="after">
@@ -51,8 +55,8 @@
                     </group>
                     <field name="allowed_cabys_ids">
                         <tree create="false" delete="false" editable="bottom">
-                            <field name="parent_id" invisible="1" />
-                            <field name="name" />
+                            <field name="parent_id" invisible="1"/>
+                            <field name="name"/>
                         </tree>
                     </field>
                 </page>
